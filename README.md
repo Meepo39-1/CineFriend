@@ -1,1 +1,1 @@
-# CinePocket
+# CineFriend
