@@ -1,5 +1,0 @@
-C:\Users\Edi\Desktop\Internship Amdaris\Proiect\Wafend\CineFiend\CineFiend\obj\Debug\net6.0\CineFiend.csproj.AssemblyReference.cache
-C:\Users\Edi\Desktop\Internship Amdaris\Proiect\Wafend\CineFiend\CineFiend\obj\Debug\net6.0\CineFiend.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Edi\Desktop\Internship Amdaris\Proiect\Wafend\CineFiend\CineFiend\obj\Debug\net6.0\CineFiend.AssemblyInfoInputs.cache
-C:\Users\Edi\Desktop\Internship Amdaris\Proiect\Wafend\CineFiend\CineFiend\obj\Debug\net6.0\CineFiend.AssemblyInfo.cs
-C:\Users\Edi\Desktop\Internship Amdaris\Proiect\Wafend\CineFiend\CineFiend\obj\Debug\net6.0\CineFiend.csproj.CoreCompileInputs.cache
