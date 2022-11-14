@@ -1,0 +1,29 @@
+[33mcommit 375a833cf32059dbfe4e54a0e440090cdb5c2a4b[m[33m ([m[1;36mHEAD -> [m[1;32mC#basics[m[33m, [m[1;31morigin/C#basics[m[33m, [m[1;32mstringsDates[m[33m)[m
+Author: Meepo39-1 <emarin87@yahoo.com>
+Date:   Sat Nov 12 19:52:25 2022 +0200
+
+    Add class hierarchy and partial implementations
+    
+     I want to work on second assignment, I will try to refine later
+
+[33mcommit 20f92261788fd65f87dc9c3c4f6a677afb1a0690[m
+Author: Meepo39-1 <emarin87@yahoo.com>
+Date:   Fri Nov 11 14:53:18 2022 +0200
+
+    Add class structure
+    
+    For readability
+
+[33mcommit 312bdd824f8d31689ec922d2c28a736d3fca275d[m
+Author: Meepo39-1 <emarin87@yahoo.com>
+Date:   Fri Nov 11 14:38:33 2022 +0200
+
+    Add link to previous 2 assignments
+    
+    Did this to have all my assignments in one place
+
+[33mcommit c731bc35b7733a7fe9987a470af64bc94fa1c453[m
+Author: Meepo39-1 <39216531+Meepo39-1@users.noreply.github.com>
+Date:   Fri Nov 11 14:26:50 2022 +0200
+
+    Initial commit
