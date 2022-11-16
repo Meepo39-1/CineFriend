@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Users
+namespace Application.Interfaces
 {
-    public class FriendList
+     public interface ICloneable<T> where T : Icloneable<T>
+
     {
+        T Clone();
     }
 }

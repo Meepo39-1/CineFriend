@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Users
+namespace Application.Interfaces
 {
-    public class FriendList
+    internal interface IChat
     {
+        void ShowMessages();
     }
 }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Edi\\Desktop\\Internship Amdaris\\Proiect\\Wafend\\CineFiend\\Domain\\Domain.csproj": {}
+    "C:\\Users\\Edi\\Desktop\\Internship Amdaris\\Proiect\\Wafend\\CineFiend\\CineFiend\\CineFiend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Edi\\Desktop\\Internship Amdaris\\Proiect\\Wafend\\CineFiend\\Domain\\Domain.csproj": {
+    "C:\\Users\\Edi\\Desktop\\Internship Amdaris\\Proiect\\Wafend\\CineFiend\\CineFiend\\CineFiend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Edi\\Desktop\\Internship Amdaris\\Proiect\\Wafend\\CineFiend\\Domain\\Domain.csproj",
-        "projectName": "Domain",
-        "projectPath": "C:\\Users\\Edi\\Desktop\\Internship Amdaris\\Proiect\\Wafend\\CineFiend\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Edi\\Desktop\\Internship Amdaris\\Proiect\\Wafend\\CineFiend\\CineFiend\\CineFiend.csproj",
+        "projectName": "Presentation Layer",
+        "projectPath": "C:\\Users\\Edi\\Desktop\\Internship Amdaris\\Proiect\\Wafend\\CineFiend\\CineFiend\\CineFiend.csproj",
         "packagesPath": "C:\\Users\\Edi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Edi\\Desktop\\Internship Amdaris\\Proiect\\Wafend\\CineFiend\\Domain\\obj\\",
+        "outputPath": "C:\\Users\\Edi\\Desktop\\Internship Amdaris\\Proiect\\Wafend\\CineFiend\\Presentation Layer\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Edi\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -27,7 +27,14 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\Edi\\Desktop\\Internship Amdaris\\Proiect\\Wafend\\CineFiend\\Application\\Application.csproj": {
+                "projectPath": "C:\\Users\\Edi\\Desktop\\Internship Amdaris\\Proiect\\Wafend\\CineFiend\\Application\\Application.csproj"
+              },
+              "C:\\Users\\Edi\\Desktop\\Internship Amdaris\\Proiect\\Wafend\\CineFiend\\Infrastructure\\Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\Edi\\Desktop\\Internship Amdaris\\Proiect\\Wafend\\CineFiend\\Infrastructure\\Infrastructure.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -39,16 +46,6 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "dependencies": {
-            "MediatR.Extensions.Microsoft.DependencyInjection": {
-              "target": "Package",
-              "version": "[11.0.0, )"
-            },
-            "Microsoft.Extensions.DependencyInjection": {
-              "target": "Package",
-              "version": "[7.0.0, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",

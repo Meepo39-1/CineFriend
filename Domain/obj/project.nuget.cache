@@ -1,8 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "ZdvzlDpUPnTPPurHJntfBUneShrCVBHBLokrcxTi0jooC4s1cs4P2EoQzqvZj/0JDrW8fdxqjL7kCG8BHdqtFg==",
+  "dgSpecHash": "Yspz2Fy8zMETERyHJpZ9+vyc0DSc/t8sZuFec1dt927Dwov/dnNZZjeBWFYirTsdjZNs4qNl8u8NDuPRxCZXlQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Edi\\Desktop\\Internship Amdaris\\Proiect\\Wafend\\CineFiend\\Domain\\Domain.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Edi\\.nuget\\packages\\mediatr\\11.0.0\\mediatr.11.0.0.nupkg.sha512",
+    "C:\\Users\\Edi\\.nuget\\packages\\mediatr.contracts\\1.0.1\\mediatr.contracts.1.0.1.nupkg.sha512",
+    "C:\\Users\\Edi\\.nuget\\packages\\mediatr.extensions.microsoft.dependencyinjection\\11.0.0\\mediatr.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
+    "C:\\Users\\Edi\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\7.0.0\\microsoft.extensions.dependencyinjection.7.0.0.nupkg.sha512",
+    "C:\\Users\\Edi\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\7.0.0\\microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

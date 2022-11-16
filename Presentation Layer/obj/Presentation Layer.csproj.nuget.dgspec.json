@@ -43,6 +43,20 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "MediatR": {
+              "target": "Package",
+              "version": "[11.0.0, )"
+            },
+            "MediatR.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[11.0.0, )"
+            },
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -98,6 +112,16 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "MediatR.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[11.0.0, )"
+            },
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -141,7 +165,11 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\Edi\\Desktop\\Internship Amdaris\\Proiect\\Wafend\\CineFiend\\Application\\Application.csproj": {
+                "projectPath": "C:\\Users\\Edi\\Desktop\\Internship Amdaris\\Proiect\\Wafend\\CineFiend\\Application\\Application.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -153,6 +181,20 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "MediatR": {
+              "target": "Package",
+              "version": "[11.0.0, )"
+            },
+            "MediatR.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[11.0.0, )"
+            },
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -215,6 +257,20 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "MediatR": {
+              "target": "Package",
+              "version": "[11.0.0, )"
+            },
+            "MediatR.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[11.0.0, )"
+            },
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

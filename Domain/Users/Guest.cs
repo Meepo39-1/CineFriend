@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Users
 {
-    internal class Guest : User
+    public class Guest : User
     {
        
         CinemaRoom CinemaRooms { get; }
@@ -21,7 +21,7 @@ namespace Domain.Users
          FriendList friends { get; }
         */
 
-        Guest(string id, string name, string password, MovieLibrary movies, FriendList friends, CinemaRoom cinemaRooms = null) : base(id, name, password, movies, friends)
+        public Guest(int id, string name, string password, MovieLibrary movies, FriendList friends, CinemaRoom cinemaRooms = null) : base(id, name, password, movies, friends)
         {
             CinemaRooms = cinemaRooms;
         }

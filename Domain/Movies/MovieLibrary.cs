@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Movies
 {
-    internal class MovieLibrary : IEnumerable
+    public class MovieLibrary : IEnumerable
     {
         List<Movie> _movies;
 

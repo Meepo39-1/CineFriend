@@ -1,7 +1,8 @@
-﻿
-using Infrastructure;
-using Application;
-
+﻿using Application.Repositorys;
+using MediatR;
+using Application.Users.Commands.CreateUser;
+using Microsoft.Extensions.DependencyInjection;
+using Infrastructure.InMemoryRepositorys;
 public class Program
 {
     void LoginPage()
@@ -51,8 +52,22 @@ public class Program
     
    
 
-    static void Main()
+    static async void Main()
     {
+        var diContainer = new ServiceCollection()
+            .AddScoped<IUserRepository, InMemoryUserRepository>()
+            .AddMediatR(typeof(IUserRepository))
+            .BuildServiceProvider();
+
+        var mediator = diContainer.GetRequiredService<IMediator>();
+
+        var UserId = await mediator.Send(new CreateUserCommand
+        {
+            userInfo = null
+        });
+        
+        //to be continued 
+        
 
 
     }

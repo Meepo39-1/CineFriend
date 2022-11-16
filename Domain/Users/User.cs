@@ -10,7 +10,7 @@ using Domain.Rooms;
 
 namespace Domain.Users
 {
-    internal abstract class User : ICloneable<User>
+    public abstract class User : ICloneable<User>
     {
         protected readonly MovieLibrary movies;
         protected int ID { get; set; }
