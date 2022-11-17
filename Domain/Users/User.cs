@@ -8,9 +8,9 @@ using Application.Interfaces;
 using Domain.Rooms;
 
 
-namespace Domain.Users
-{
-    public abstract class User : ICloneable<User>
+namespace Domain.Users;
+
+    public abstract class User 
     {
         protected readonly MovieLibrary movies;
         protected int ID { get; set; }
@@ -31,4 +31,4 @@ namespace Domain.Users
 
         public abstract User Clone();
     }
-}
+
