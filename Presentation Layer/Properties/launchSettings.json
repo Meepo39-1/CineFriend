@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "Presentation Layer": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:57958;http://localhost:57964"
+    }
+  }
+}

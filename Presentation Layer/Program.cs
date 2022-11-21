@@ -64,7 +64,7 @@ public class Program
         var UserId = await mediator.Send(new CreateUserCommand
         {
             userInfo = null
-        });
+        }) ;
         
         //to be continued 
         

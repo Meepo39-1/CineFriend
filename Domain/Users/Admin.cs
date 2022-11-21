@@ -20,5 +20,6 @@ namespace Domain.Users
         {
             return new Admin(ID, Name, Password, Movies, Friends);
         }
+        public Up
     }
 }
