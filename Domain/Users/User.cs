@@ -10,16 +10,16 @@ using Domain.Rooms;
 
 namespace Domain.Users
 {
-    internal abstract class User : ICloneable, IWatcher, ISocializer, IChatter
+    public abstract class User : ICloneable, IWatcher, ISocializer, IChatter
     {
-        protected readonly MovieLibrary movies;
-        protected string ID { get; set; }
+        public  readonly MovieLibrary movies;
+        public string ID { get; set; }
         public string Name { get; set; }
         
         protected string Password { get; set; }
-        protected MovieLibrary Movies { get; }
+        public MovieLibrary Movies { get; }
 
-        protected FriendList Friends { get; }
+        public FriendList Friends { get; }
 
         public User(string id = "NULL", string name = "NULL", string password = "NULL", MovieLibrary movies = null, FriendList friends = null)
         {

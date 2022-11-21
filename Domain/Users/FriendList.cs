@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Users
 {
-    internal class FriendList: IEnumerable
+    public class FriendList: IEnumerable
     {
         List<User> _friends;
 
@@ -23,6 +23,12 @@ namespace Domain.Users
             _friends.Add((User) user.Clone());
         }
 
-       
+        public void RemoveFriend(User user)
+        {
+
+            _friends.Remove((User)user.Clone());
+        }
+
+
     }
 }

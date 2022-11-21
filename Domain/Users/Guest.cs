@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Linq;
 
 namespace Domain.Users
 {
@@ -56,14 +57,26 @@ namespace Domain.Users
             throw new NotImplementedException();
         }
 
-        public override void RemoveFriend(string friendName)
-        {
-            throw new NotImplementedException();
-        }
 
-        public override void RemoveFriend(int friendId)
+
+        public override void RemoveFriend(string friendId)
         {
-            throw new NotImplementedException();
+            bool found = false;
+            foreach(User user in Friends)
+            {
+                if(user.ID.Equals(friendId))
+                {
+                    Friends.RemoveFriend(user);
+                    found = true;
+                    
+                }
+            }
+            if (!found)
+            {
+                throw new KeyNotFoundException();
+            }
+           
+         
         }
 
         public override void WriteMessage(string message)

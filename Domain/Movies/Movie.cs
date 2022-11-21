@@ -6,15 +6,26 @@ using System.Threading.Tasks;
 
 namespace Domain.Movies
 {
-    internal class Movie
+    public class Movie: ICloneable
     {
+        public Movie(int iD, string name, string genre, int rating)
+        {
+            ID = iD;
+            Name = name;
+            Genre = genre;
+            Rating = rating;
+        }
+
         int ID { get; set; }
-        string Name { get; set; }
+        public string Name { get; set; }
         
         string Genre { get; set; }
         string Length { get; set; }
         int Rating { get; set; }
 
-
+        public object Clone()
+        {
+            return new Movie(ID, Name, Genre, Rating);
+        }
     }
 }

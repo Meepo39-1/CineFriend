@@ -7,10 +7,22 @@ using System.Threading.Tasks;
 namespace Domain.Movies
 {   
     record Settings;
-    internal class MoviePlayer
+    public class MoviePlayer
     {
+        public Movie? movie;
         Settings settings;
 
         Settings Settings { get; }
+
+
+        public void TurnOn()
+        {
+
+        }
+        public void TurnOff()
+        {
+
+        }
+        
     }
 }
