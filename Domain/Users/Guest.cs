@@ -11,7 +11,7 @@ namespace Domain.Users
     internal class Guest : User
     {
        
-        CinemaRoom CinemaRooms { get; }
+       // List<CinemaRoom> CinemaRooms { get; }
         /* string ID { get; set; }
          string Name { get; set; }
 
@@ -21,18 +21,54 @@ namespace Domain.Users
          FriendList friends { get; }
         */
 
-        Guest(string id, string name, string password, MovieLibrary movies, FriendList friends, CinemaRoom cinemaRooms = null) : base(id, name, password, movies, friends)
+        Guest(string id, string name, string password, MovieLibrary movies, FriendList friends) : base(id, name, password, movies, friends)
         {
-            CinemaRooms = cinemaRooms;
+            
+
         }
 
         public Guest()
         {
         }
 
-        public override User Clone()
+        public override object Clone()
         {
-            return new Guest();
+            return new Guest(ID,Name,Password,Movies,Friends);
+        }
+
+        public override void WatchMovie(int movieId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void WatchMovie(string movieName)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void AddFriend(string friendName)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void AddFriend(int friendId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void RemoveFriend(string friendName)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void RemoveFriend(int friendId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void WriteMessage(string message)
+        {
+            throw new NotImplementedException();
         }
     }
 }

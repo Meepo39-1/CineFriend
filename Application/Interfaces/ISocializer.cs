@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Application.Interfaces
 {
-    internal interface ISocializer
+    public interface ISocializer
     {
         void AddFriend(string friendName);
 

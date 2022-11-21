@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Application.Interfaces
 {
-    internal interface IMoviePlayer
+    public interface IMoviePlayer
     {
         void Play();
         void Pause();

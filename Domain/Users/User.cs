@@ -10,11 +10,11 @@ using Domain.Rooms;
 
 namespace Domain.Users
 {
-    internal abstract class User : ICloneable<User>
+    internal abstract class User : ICloneable, IWatcher, ISocializer, IChatter
     {
         protected readonly MovieLibrary movies;
-        protected int ID { get; set; }
-        protected string Name { get; set; }
+        protected string ID { get; set; }
+        public string Name { get; set; }
         
         protected string Password { get; set; }
         protected MovieLibrary Movies { get; }
@@ -26,9 +26,41 @@ namespace Domain.Users
             ID = id;
             Name = name;
             Password = password;
-            Movies = movies;
+            MovieLibrary copiedMovies = new MovieLibrary();
+            foreach(Movie movie in movies)
+            {
+                copiedMovies.AddMovie(movie);
+
+            }
+            Movies = copiedMovies;
+
+            FriendList copiedFriends = new FriendList();
+            foreach (User friend in friends)
+            {
+                copiedFriends.AddFriend(friend);
+
+            }
+
+            friends = copiedFriends;
+
         }
 
-        public abstract User Clone();
+        public abstract object Clone();
+
+        public abstract void WatchMovie(int movieId);
+        public abstract void WatchMovie(string movieName);
+        public abstract void AddFriend(string friendName);
+        public abstract void AddFriend(int friendId);
+        public abstract void RemoveFriend(string friendName);
+        public abstract void RemoveFriend(int friendId);
+        public abstract void WriteMessage(string message);
+
+        public virtual void SeeFriends()
+        {
+            foreach (User friend in Friends)
+            {
+                Console.WriteLine(friend.Name);
+            }
+        }
     }
 }

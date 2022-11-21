@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Application.Interfaces
 {
-    internal interface IWatcher
+    public interface IWatcher
     {
         void WatchMovie(int movieId);
         void WatchMovie(string movieName);

@@ -16,6 +16,9 @@ namespace Domain.Movies
             return _movies.GetEnumerator();
         }
 
-        
+        public void AddMovie(Movie movie)
+        {
+            _movies.Add((Movie)movie.Clone());
+        }
     }
 }

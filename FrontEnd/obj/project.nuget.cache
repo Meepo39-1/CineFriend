@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "8s14mHNvRVJFeELeO/pS5p39t7kNuE4plyFWqTik7BLN9w7/HuKWq44czYrA7t+Y+x/UHUNxd/jpNP/ZLPqtpA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Edi\\Desktop\\Internship Amdaris\\Proiect\\Wafend\\CineFiend\\FrontEnd\\FrontEnd.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Edi\\.nuget\\packages\\microsoft.aspnetcore.spaproxy\\6.0.10\\microsoft.aspnetcore.spaproxy.6.0.10.nupkg.sha512"
+  ],
+  "logs": []
+}
