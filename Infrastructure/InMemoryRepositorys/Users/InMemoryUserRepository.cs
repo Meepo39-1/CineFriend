@@ -8,7 +8,7 @@ using Domain.Users;
 using Domain.Movies;
 using Application.Repositorys.Users;
 
-namespace Infrastructure.InMemoryRepositorys
+namespace Infrastructure.InMemoryRepositorys.Users
 {
     public class InMemoryUserRepository : IUserRepository
     {
@@ -21,7 +21,7 @@ namespace Infrastructure.InMemoryRepositorys
         public void CreateUser(User userInfo)
         {
             users.Append(userInfo);
-            
+
         }
 
         public void DeleteUser(int userID)
@@ -56,5 +56,5 @@ namespace Infrastructure.InMemoryRepositorys
 
 
     }
-    
+
 }
