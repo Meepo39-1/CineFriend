@@ -8,13 +8,14 @@ using System.Threading.Tasks;
 
 namespace Domain.Rooms
 {
-    internal class CinemaRoom
+    public class CinemaRoom
     {
-        Movie Movie { get; }
-        Chat Chat { get; }
+        public MoviePlayer MoviePlayer { get; }
+        public Chat Chat { get; }
 
-        List<Guest> Guests { get; set; }
-        Admin Admin { get; set; }
+        public List<User> Guests { get; set; }
+        public User Admin { get; set; }
+        
 
     }
 }

@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Interfaces
+namespace Application.Repositorys.Movies
 {
-    internal interface IMoviePlayer
+    internal interface IMovieLibraryRepository
     {
-        void Play();
-        void Pause();
+        void CreateMovieLibrary();
     }
 }

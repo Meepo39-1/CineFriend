@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace Application.Interfaces
 {
-    internal interface IAdmin
+    public interface IHost
     {
-        void UpdateGuests();
-        void DeleteGuests();
-        void WatchTime();
-
+        public void Invite(string link);
     }
 }

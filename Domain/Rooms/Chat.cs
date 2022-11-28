@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Rooms
 {
-    internal class Chat
+    public class Chat
     {
         List<string> _messages;
 

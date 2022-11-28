@@ -1,8 +1,9 @@
-﻿using Application.Repositorys;
-using MediatR;
+﻿using MediatR;
 using Application.Users.Commands.CreateUser;
 using Microsoft.Extensions.DependencyInjection;
 using Infrastructure.InMemoryRepositorys;
+using Application.Repositorys.Users;
+
 public class Program
 {
     void LoginPage()
@@ -24,6 +25,7 @@ public class Program
         /* baisc SearchBar with username and some stats of that particular user
          * Function to add or remove friends
          */
+
     }
     void MovieLibrary()
     {
@@ -65,6 +67,14 @@ public class Program
         {
             userInfo = null
         }) ;
+        string message;
+        var chatID = await mediator.Send(new SendMessageCommand
+        {
+            UserId = UserId,
+            Message = message
+        }); ;
+
+        
         
         //to be continued 
         

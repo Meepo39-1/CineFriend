@@ -10,16 +10,20 @@ using Domain.Rooms;
 
 namespace Domain.Users;
 
-    public abstract class User 
+    public class User 
     {
         protected readonly MovieLibrary movies;
-        protected int ID { get; set; }
+        protected string ID { get; set; }
         protected string Name { get; set; }
         
         protected string Password { get; set; }
         protected MovieLibrary Movies { get; }
 
         protected FriendList Friends { get; }
+
+        public CinemaRoom adminCinema;
+        public CinemaRoom activeRoom;
+        public List<CinemaRoom> guestCinemas;
 
         public User(string id = "NULL", string name = "NULL", string password = "NULL", MovieLibrary movies = null, FriendList friends = null)
         {

@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Interfaces
+namespace Application.CQRS.Users.Commands.UpdateUser
 {
-     public interface ICloneable<T> where T : Icloneable<T>
-
+    internal class UserDTO
     {
-        T Clone();
     }
 }

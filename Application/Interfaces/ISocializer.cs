@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace Application.Interfaces
 {
-    internal interface ISocializer
+    public interface ISocializer
     {
-        void AddFriend(string friendName);
+        public void AddFriend(string friendName);
 
-        void AddFriend(int friendId);
-        void RemoveFriend(string friendName);
+        public void AddFriend(int friendId);
+        public void RemoveFriend(string friendName);
 
-        void RemoveFriend(int friendId);
+        public void RemoveFriend(int friendId);
 
         
     }

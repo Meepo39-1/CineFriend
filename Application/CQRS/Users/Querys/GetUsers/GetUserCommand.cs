@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Interfaces
+namespace Application.CQRS.Users.Querys.GetUser
 {
-    internal interface IChatter
+    internal class GetUserCommand
     {
-        void WriteMessage(string message);
     }
 }

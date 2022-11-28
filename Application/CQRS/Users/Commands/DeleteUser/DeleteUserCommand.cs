@@ -5,13 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Users.Commands.CreateUser
+namespace Application.CQRS.Users.Commands.DeleteUser
 {
-    public class CreateUserCommand : IRequest<int>
+    public class DeleteUserCommand : IRequest<string>
     {
-        public UserDTO userInfo;
-
-        
-
+        public UserDTO userDTO;
     }
 }
