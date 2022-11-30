@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Domain.Movies
 {   
     record Settings;
-    internal class MoviePlayer
+    public class MoviePlayer
     {
         Settings settings;
 

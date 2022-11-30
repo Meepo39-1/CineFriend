@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.CQRS.Users.Querys.GetUser
+namespace Application.CQRS.Users.Querys.GetUsers
 {
     internal class GetUserCommand
     {

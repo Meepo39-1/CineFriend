@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.CQRS.Users.Querys.GetUsers
+namespace Domain.Rooms.Chats
 {
-    internal class GetUserCommandHandler
+    public class BIrthdayChat : Chat
     {
     }
 }

@@ -15,7 +15,7 @@ namespace Application.CQRS.Users.Commands.DeleteUser
         private readonly IUserRepository _userRepository;
         private readonly ICinemaRoomRepository _roomRepository;
 
-        DeleteUserCommandHandler(IUserRepository userRepository, ICinemaRoomRepository roomRepository)
+        public DeleteUserCommandHandler(IUserRepository userRepository, ICinemaRoomRepository roomRepository)
         {
             _userRepository = userRepository;
             _roomRepository = roomRepository;

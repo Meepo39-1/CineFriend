@@ -1,4 +1,6 @@
-﻿using System;
+﻿
+using Domain.Rooms.Chats;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +10,7 @@ namespace Application.Repositorys.Rooms
 {
     public interface IChatRepository
     {
-        void CreateChat();
+        public void CreateChat();
+        public Chat GetChat(string adminID);
     }
 }

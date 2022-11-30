@@ -18,6 +18,17 @@ namespace Infrastructure.InMemoryRepositorys.Users
             new User("2","Mihai", "parola2", new MovieLibrary(), new FriendList()),
             new User("3","Cosmin", "parola3", new MovieLibrary(), new FriendList()),
         };
+
+        public void AddFriend(string friendName)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AddFriend(int friendId)
+        {
+            throw new NotImplementedException();
+        }
+
         public void CreateUser(User userInfo)
         {
             users.Append(userInfo);
@@ -25,6 +36,11 @@ namespace Infrastructure.InMemoryRepositorys.Users
         }
 
         public void DeleteUser(int userID)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteUser(string userID)
         {
             throw new NotImplementedException();
         }
@@ -44,7 +60,27 @@ namespace Infrastructure.InMemoryRepositorys.Users
             throw new NotImplementedException();
         }
 
+        public FriendList GetFriendList()
+        {
+            throw new NotImplementedException();
+        }
+
         public User GetUser(int userID)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<User> GetUsers()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void RemoveFriend(string friendName)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void RemoveFriend(int friendId)
         {
             throw new NotImplementedException();
         }
@@ -54,7 +90,20 @@ namespace Infrastructure.InMemoryRepositorys.Users
             throw new NotImplementedException();
         }
 
+        public void UpdateUser(string userID, List<string> userChanges)
+        {
+            throw new NotImplementedException();
+        }
 
+        public void WatchMovie(int movieId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void WatchMovie(string movieName)
+        {
+            throw new NotImplementedException();
+        }
     }
 
 }

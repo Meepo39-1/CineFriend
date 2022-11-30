@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Rooms
+namespace Domain.Rooms.Chats
 {
-    public class Chat
+    public abstract class Chat
     {
-        List<string> _messages;
+        private List<string> _messages;
 
-        List<string> Messages
+        public List<string> Messages
         {
             get { return _messages; }
             set { _messages = value; }

@@ -4,13 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Domain.Movies;
-using Application.Interfaces;
-using Domain.Rooms;
-
+using Domain.Rooms.Cinema;
 
 namespace Domain.Users;
 
-    public class User 
+public class User 
     {
         protected readonly MovieLibrary movies;
         protected string ID { get; set; }
@@ -33,6 +31,6 @@ namespace Domain.Users;
             Movies = movies;
         }
 
-        public abstract User Clone();
+        public User Clone() { return this; }
     }
 

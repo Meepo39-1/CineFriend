@@ -1,4 +1,4 @@
-﻿using Domain.Rooms;
+﻿using Domain.Rooms.Cinema;
 using Domain.Users;
 using System;
 using System.Collections.Generic;

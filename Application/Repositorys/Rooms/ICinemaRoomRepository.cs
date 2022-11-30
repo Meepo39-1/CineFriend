@@ -1,5 +1,6 @@
 ﻿using Application.Interfaces;
-using Domain.Rooms;
+using Domain.Rooms.Chats;
+using Domain.Rooms.Cinema;
 using System;
 using System.Collections.Generic;
 using System.Linq;

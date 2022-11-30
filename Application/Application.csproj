@@ -13,12 +13,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Domain\Domain.csproj" />
+    <Folder Include="CQRS\Movies\" />
+    <Folder Include="CQRS\Rooms\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="CQRS\Movies\" />
-    <Folder Include="CQRS\Rooms\" />
+    <ProjectReference Include="..\Domain\Domain.csproj" />
   </ItemGroup>
 
 </Project>

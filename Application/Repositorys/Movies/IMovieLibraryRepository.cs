@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Application.Repositorys.Movies
 {
-    internal interface IMovieLibraryRepository
+    public interface IMovieLibraryRepository
     {
         void CreateMovieLibrary();
+        void GetMovieLibrary();
     }
 }

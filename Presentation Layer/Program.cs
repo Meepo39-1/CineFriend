@@ -1,8 +1,9 @@
 ﻿using MediatR;
-using Application.Users.Commands.CreateUser;
 using Microsoft.Extensions.DependencyInjection;
-using Infrastructure.InMemoryRepositorys;
 using Application.Repositorys.Users;
+using Application.CQRS.Users.Commands.CreateUser;
+using Infrastructure.InMemoryRepositorys.Users;
+using Presentation_Layer;
 
 public class Program
 {
@@ -54,30 +55,32 @@ public class Program
     
    
 
-    static async void Main()
+    void Main()
     {
-        var diContainer = new ServiceCollection()
-            .AddScoped<IUserRepository, InMemoryUserRepository>()
-            .AddMediatR(typeof(IUserRepository))
-            .BuildServiceProvider();
+        /* var diContainer = new ServiceCollection()
+             .AddScoped<IUserRepository, InMemoryUserRepository>()
+             .AddMediatR(typeof(IUserRepository))
+             .BuildServiceProvider();
 
-        var mediator = diContainer.GetRequiredService<IMediator>();
+         var mediator = diContainer.GetRequiredService<IMediator>();
 
-        var UserId = await mediator.Send(new CreateUserCommand
-        {
-            userInfo = null
-        }) ;
-        string message;
-        var chatID = await mediator.Send(new SendMessageCommand
-        {
-            UserId = UserId,
-            Message = message
-        }); ;
+         var UserId = await mediator.Send(new CreateUserCommand
+         {
+             userInfo = null
+         }) ;
+         string message;
+         var chatID = await mediator.Send(new SendMessageCommand
+         {
+             UserId = UserId,
+             Message = message
+         }); ;
 
-        
-        
+
+         */
         //to be continued 
-        
+
+        var test = new Test();
+        test.CreateHolidayCinemaRoom();
 
 
     }

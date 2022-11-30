@@ -7,7 +7,7 @@ namespace Application.Repositorys.Users
     {
         void CreateUser(User newUser);
         void UpdateUser(int userID);
-        void UpdateUser(string userID, List<string> params)
+        void UpdateUser(string userID, List<string> userChanges);
 
         void DeleteUser(int userID);
         void DeleteUser(string userID);
@@ -15,6 +15,6 @@ namespace Application.Repositorys.Users
         User GetUser(int userID);
         IEnumerable<User> GetUsers();
         FriendList GetFriendList();
-        User GetFriend();
+     
     }
 }
