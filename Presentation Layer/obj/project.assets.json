@@ -248,6 +248,7 @@
   "projectFileDependencyGroups": {
     "net6.0": [
       "Application >= 1.0.0",
+      "Domain >= 1.0.0",
       "Infrastructure >= 1.0.0",
       "MediatR >= 11.0.0",
       "MediatR.Extensions.Microsoft.DependencyInjection >= 11.0.0",
@@ -283,6 +284,9 @@
           "projectReferences": {
             "C:\\Users\\Edi\\Desktop\\Internship Amdaris\\Proiect\\Wafend\\CineFiend\\Application\\Application.csproj": {
               "projectPath": "C:\\Users\\Edi\\Desktop\\Internship Amdaris\\Proiect\\Wafend\\CineFiend\\Application\\Application.csproj"
+            },
+            "C:\\Users\\Edi\\Desktop\\Internship Amdaris\\Proiect\\Wafend\\CineFiend\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Users\\Edi\\Desktop\\Internship Amdaris\\Proiect\\Wafend\\CineFiend\\Domain\\Domain.csproj"
             },
             "C:\\Users\\Edi\\Desktop\\Internship Amdaris\\Proiect\\Wafend\\CineFiend\\Infrastructure\\Infrastructure.csproj": {
               "projectPath": "C:\\Users\\Edi\\Desktop\\Internship Amdaris\\Proiect\\Wafend\\CineFiend\\Infrastructure\\Infrastructure.csproj"

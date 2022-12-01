@@ -12,11 +12,14 @@ namespace Domain.Users;
 
     public class User 
     {
-        protected readonly MovieLibrary movies;
-        protected string ID { get; set; }
-        protected string Name { get; set; }
-        
+        public readonly MovieLibrary movies;
+        public string ID { get; set; }
+        public string Name { get; set; }
+        public int StartYear { get; set; }
         protected string Password { get; set; }
+        public int movieLibraryLength;
+        public List<string> interests { get; set; }
+    public int age;
         protected MovieLibrary Movies { get; }
 
         protected FriendList Friends { get; }
