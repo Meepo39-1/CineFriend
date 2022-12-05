@@ -1,8 +1,9 @@
 ﻿using MediatR;
-using Application.Users.Commands.CreateUser;
+//using Application.Users.Commands.CreateUser;
 using Microsoft.Extensions.DependencyInjection;
 using Infrastructure.InMemoryRepositorys;
 using Application.Repositorys.Users;
+using Domain.Notification;
 
 public class Program
 {
@@ -54,31 +55,36 @@ public class Program
     
    
 
-    static async void Main()
+    static void Main()
     {
-        var diContainer = new ServiceCollection()
-            .AddScoped<IUserRepository, InMemoryUserRepository>()
-            .AddMediatR(typeof(IUserRepository))
-            .BuildServiceProvider();
+        /* var diContainer = new ServiceCollection()
+             .AddScoped<IUserRepository, InMemoryUserRepository>()
+             .AddMediatR(typeof(IUserRepository))
+             .BuildServiceProvider();
 
-        var mediator = diContainer.GetRequiredService<IMediator>();
+         var mediator = diContainer.GetRequiredService<IMediator>();
 
-        var UserId = await mediator.Send(new CreateUserCommand
-        {
-            userInfo = null
-        }) ;
-        string message;
-        var chatID = await mediator.Send(new SendMessageCommand
-        {
-            UserId = UserId,
-            Message = message
-        }); ;
-
-        
-        
-        //to be continued 
-        
+         var UserId = await mediator.Send(new CreateUserCommand
+         {
+             userInfo = null
+         }) ;
+         string message;
+         /*var chatID = await mediator.Send(new SendMessageCommand
+         {
+             UserId = UserId,
+             Message = message
+         }); ;*/
 
 
-    }
+
+        //to be continued */
+        string message = "Eduard invited you to join their cinemaroom";
+
+        var notification = new BaseNotificationDecorator(message);
+
+        notification = new EmailDecorator(notification);
+        notification.SendMessage();
+        notification = new FacebookDecorator(notification);
+        notification.SendMessage();
+        }
 }

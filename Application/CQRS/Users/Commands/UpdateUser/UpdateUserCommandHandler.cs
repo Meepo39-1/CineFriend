@@ -29,7 +29,7 @@ namespace Application.CQRS.Users.Commands.UpdateUser
             }
             try
             {
-                _userRepository.UpdateUser(_userInfo.ID, changes);
+                _userRepository.UpdateUser(_userInfo.Id);
                 return Task.FromResult("User updated");
             }
             catch(Exception e)

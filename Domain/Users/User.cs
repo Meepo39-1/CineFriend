@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Domain.Movies;
-using Application.Interfaces;
 using Domain.Rooms;
 
 
@@ -33,6 +32,6 @@ namespace Domain.Users;
             Movies = movies;
         }
 
-        public abstract User Clone();
+        //public abstract User Clone();
     }
 

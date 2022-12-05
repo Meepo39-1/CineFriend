@@ -24,7 +24,7 @@ namespace Application.Repositorys.Rooms
 
         Chat GetRoomChat(string cinemaRoomID);
 
-        void Invite(string link);
+        void Invite(string link, List<Domain.Users.User> users);
 
     }
 }

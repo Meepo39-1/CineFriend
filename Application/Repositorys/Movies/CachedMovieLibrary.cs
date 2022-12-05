@@ -80,7 +80,7 @@ namespace Application.Repositorys.Movies
         {
             if (_movieList == null)
             {
-                _movieLibraryRepository.GetAllMovies()
+                _movieLibraryRepository.GetAllMovies();
             }
             
         }

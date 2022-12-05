@@ -90,12 +90,10 @@ namespace Infrastructure.InMemoryRepositorys.Users
             throw new NotImplementedException();
         }
 
-        public void UpdateUser(string userID, List<string> 1, params object 2)
+        public void UpdateUser(string userID)
         {
             throw new NotImplementedException();
         }
-
-     
     }
 
 }

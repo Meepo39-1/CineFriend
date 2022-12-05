@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Application.Interfaces
 {
-    internal interface IMovieLibrary
+    public interface IMovieLibrary
     {
+        public void GetMovies(string id);
     }
 }
