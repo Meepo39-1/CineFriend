@@ -15,7 +15,7 @@ namespace Domain.Meta
 
         private List<User> _userList;
         private int _userCount;
-        private int activeUsers;
+        private int _activeUsers;
 
         private Logger()
         {
