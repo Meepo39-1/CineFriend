@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Domain.Movies;
+using Domain.Observer_Design_Pattern;
 using Domain.Rooms.Cinema;
 
 namespace Domain.Users;
 
-public class User 
+public class User : Subscriber
     {
         protected readonly MovieLibrary movies;
         protected string ID { get; set; }
@@ -30,7 +31,20 @@ public class User
             Password = password;
             Movies = movies;
         }
+    
 
         public User Clone() { return this; }
+
+        public void Notify(string cinemaRoomId)
+        {
+        Console.WriteLine("Cinema room with" + cinemaRoomId + "has started watching a movie. Don't you wanna join?");
+        }
+
+        Task Subscriber.Notify(string context)
+        {
+        Console.WriteLine("Cinema room with" + cinemaRoomId + "has started watching a movie. Don't you wanna join?");
+
+        return Task.CompletedTask;
     }
+}
 
