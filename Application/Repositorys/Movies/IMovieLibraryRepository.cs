@@ -10,5 +10,6 @@ namespace Application.Repositorys.Movies
     {
         void CreateMovieLibrary();
         void GetMovieLibrary();
+        Movie GetMovie(string Id, string MovieName);
     }
 }
