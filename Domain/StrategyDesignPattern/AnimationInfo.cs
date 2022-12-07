@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Observer_Design_Pattern
+namespace Domain.StrategyDesignPattern
 {
-    public interface Subscriber
+    internal class AnimationInfo
     {
-        
-        public Task Notify(string context);
     }
 }

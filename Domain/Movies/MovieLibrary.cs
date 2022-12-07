@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Domain.Movies
 {
     public class MovieLibrary : IEnumerable
-    {
+    {   string Id { get; set; }
         List<Movie> _movies;
 
         public IEnumerator GetEnumerator()

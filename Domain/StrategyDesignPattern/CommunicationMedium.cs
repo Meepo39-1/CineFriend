@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Observer_Design_Pattern
+namespace Domain.StrategyDesignPattern
 {
-    public interface Subscriber
+    public interface  CommunicationMedium
     {
-        
-        public Task Notify(string context);
+        public void Display(Information message); 
     }
 }

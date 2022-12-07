@@ -14,7 +14,6 @@
 
   <ItemGroup>
     <Folder Include="CQRS\Movies\" />
-    <Folder Include="CQRS\Rooms\" />
   </ItemGroup>
 
   <ItemGroup>
