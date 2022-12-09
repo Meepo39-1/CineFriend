@@ -3,6 +3,7 @@ using Application.Users.Commands.CreateUser;
 using Microsoft.Extensions.DependencyInjection;
 using Infrastructure.InMemoryRepositorys;
 using Application.Repositorys.Users;
+using Application.CQRS.Users.Commands.CreateUser;
 
 public class Program
 {

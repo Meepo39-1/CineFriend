@@ -19,6 +19,7 @@
   <ItemGroup>
     <Folder Include="CQRS\Movies\" />
     <Folder Include="CQRS\Rooms\" />
+    <Folder Include="UnitTests\" />
   </ItemGroup>
 
 </Project>

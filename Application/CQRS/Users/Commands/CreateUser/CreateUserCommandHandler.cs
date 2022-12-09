@@ -36,7 +36,7 @@ namespace Application.CQRS.Users.Commands.CreateUser
             cinemaRoom.Admin = newUser;
             _roomRepository.CreateCinemaRoom(cinemaRoom);
 
-            return Task.FromResult(userInfo.ID);
+            return Task.FromResult(userInfo.Name);
         }
     }
 }
