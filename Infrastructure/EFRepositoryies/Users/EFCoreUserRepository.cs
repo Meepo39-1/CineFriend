@@ -23,13 +23,15 @@ namespace Infrastructure.EFRepositoryies.Users
 
         public Task<bool> DeleteUser(int userID)
         {
-            throw new NotImplementedException();
+            var userRecord = _dbContext.Users.First(u => u.Id == userID);
+            _dbContext.Remove(userRecord);
+
+            _dbContext.SaveChanges();
+
+            return Task.FromResult(true);
         }
 
-        public Task<bool> DeleteUser(string userID)
-        {
-            throw new NotImplementedException();
-        }
+    
 
         /*   async Task<User> GetUser(int userID)
            {
@@ -45,6 +47,21 @@ namespace Infrastructure.EFRepositoryies.Users
         public Task<IEnumerable<User>> GetUsers()
         {
             throw new NotImplementedException();
+        }
+
+        public Task<bool> UpdateUser(User newUser)
+        {
+            var reqId = newUser.Id;
+            var userRecord = _dbContext.Users.First(u => u.Id == reqId);
+
+            userRecord.Name = newUser.Name;
+            userRecord.Password = newUser.Password;
+
+
+            _dbContext.SaveChanges();
+
+            return Task.FromResult(true);
+
         }
 
         async Task<int> IUserRepository.CreateUser(User newUser)
@@ -96,5 +113,7 @@ namespace Infrastructure.EFRepositoryies.Users
 
             return Task.FromResult(domainUser);
         }
+
+   
     }
 }

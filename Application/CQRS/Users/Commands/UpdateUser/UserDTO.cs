@@ -8,6 +8,8 @@ namespace Application.CQRS.Users.Commands.UpdateUser
 {
     public class UserDTO
     {
-        public String Id { get; set; }
+        public int Id { get; set; }
+        public string UserName { get; set; }
+        public string Password { get; set; }
     }
 }

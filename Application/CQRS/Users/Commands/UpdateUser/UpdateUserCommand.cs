@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Application.CQRS.Users.Commands.UpdateUser
 {
-    public  class UpdateUserCommand : IRequest<string>
+    public  class UpdateUserCommand : IRequest<bool>
     {
        public UserDTO userInfo;  
     }

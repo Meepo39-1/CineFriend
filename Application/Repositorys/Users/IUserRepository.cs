@@ -6,9 +6,9 @@ namespace Application.Repositorys.Users
     public interface IUserRepository 
     {
         public Task<int> CreateUser(User newUser);
-       // public Task<bool> UpdateUser(int userID);
-       // public Task<bool> UpdateUser(string userID, List<string> changes);
-
+        // public Task<bool> UpdateUser(int userID);
+        // public Task<bool> UpdateUser(string userID, List<string> changes);
+        public Task<bool> UpdateUser(User newUser);
         public Task<bool> DeleteUser(int userId);
        // public Task<bool> DeleteUser(string userID);
 

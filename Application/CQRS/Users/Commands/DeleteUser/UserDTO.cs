@@ -8,7 +8,7 @@ namespace Application.CQRS.Users.Commands.DeleteUser
 {
     public class UserDTO
     {
-        public string ID { get; }
+        public int Id { get; set; }
         public string Name { get; }
     }
 }

@@ -1,4 +1,6 @@
-﻿using Application.Repositorys.Users;
+﻿using Application.Repositorys;
+using Application.Repositorys.Users;
+using Domain.Users;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -8,36 +10,39 @@ using System.Threading.Tasks;
 
 namespace Application.CQRS.Users.Commands.UpdateUser
 {
-  /*  public class UpdateUserCommandHandler : IRequestHandler<UpdateUserCommand, string>
+    public class UpdateUserCommandHandler : IRequestHandler<UpdateUserCommand, bool>
     {
         IUserRepository _userRepository;
-        UserDTO _userInfo;
+     
+        User _userInfo;
         
         public UpdateUserCommandHandler(IUserRepository userRepository)
         {
             _userRepository = userRepository;
+            _userInfo = new User();
         }
 
-        public Task<string> Handle(UpdateUserCommand request, CancellationToken cancellationToken)
-        {   
-            List<string> changes = new List<string>();
-            _userInfo = request.userInfo;
+        public Task<bool> Handle(UpdateUserCommand request, CancellationToken cancellationToken)
+        {
 
-            foreach(var field in _userInfo.GetType().GetFields())
-            {
-                changes.Add(field.Name);
-            }
+
+
+            _userInfo.Id = request.userInfo.Id;
+            _userInfo.Name = request.userInfo.UserName;
+            _userInfo.Password = request.userInfo.Password;
+
+
             try
             {
-                _userRepository.UpdateUser(_userInfo.Id, changes);
-                return Task.FromResult("User updated");
+                _userRepository.UpdateUser(_userInfo);
+                return Task.FromResult(true);
             }
             catch(Exception e)
             {
-                return Task.FromResult($"User not updated because of error {e.Message}");
+                return Task.FromResult(false);
             }
             
         }
     }
-  */
+  
 }
