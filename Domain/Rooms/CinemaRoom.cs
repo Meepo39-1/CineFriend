@@ -9,8 +9,10 @@ using System.Threading.Tasks;
 namespace Domain.Rooms
 {
     public class CinemaRoom
-    {
-        public MoviePlayer MoviePlayer { get; }
+    {   
+        public int Id { get; set; }
+        public string name { get; set; }
+        public MoviePlayer MoviePlayer { get; set; }
         public Chat Chat { get; }
 
         public List<User> Guests { get; set; }

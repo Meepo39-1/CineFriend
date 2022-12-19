@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace Domain.Movies
 {
-    internal class Movie
+    public class Movie
     {
-        int ID { get; set; }
-        string Name { get; set; }
+        public int ID { get; set; }
+        public string Name { get; set; }
         
-        string Genre { get; set; }
-        string Length { get; set; }
-        int Rating { get; set; }
+        public string Genre { get; set; }
+        public string Length { get; set; }
+        public int Rating { get; set; }
 
 
     }

@@ -3,18 +3,23 @@ using Domain.Users;
 
 namespace Application.Repositorys.Users
 {
-    public interface IUserRepository : ISocializer, IWatcher
+    public interface IUserRepository 
     {
-        void CreateUser(User newUser);
-        void UpdateUser(int userID);
-        void UpdateUser(string userID, List<string> params)
+        public Task<int> CreateUser(User newUser);
+       // public Task<bool> UpdateUser(int userID);
+       // public Task<bool> UpdateUser(string userID, List<string> changes);
 
-        void DeleteUser(int userID);
-        void DeleteUser(string userID);
+        public Task<bool> DeleteUser(int userId);
+       // public Task<bool> DeleteUser(string userID);
 
-        User GetUser(int userID);
-        IEnumerable<User> GetUsers();
-        FriendList GetFriendList();
-        User GetFriend();
+        public Task<User>  GetUser(int userId);
+        //public Task<IEnumerable<User>>  GetUsers();
+
+       /*
+        * These methods will be implemented after mvp release
+        */
+
+       //public Task<User> FriendList GetFriendList();
+       //public Task<User> User GetFriend();
     }
 }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Application.CQRS.Users.Commands.UpdateUser
 {
-    public class UpdateUserCommandHandler : IRequestHandler<UpdateUserCommand, string>
+  /*  public class UpdateUserCommandHandler : IRequestHandler<UpdateUserCommand, string>
     {
         IUserRepository _userRepository;
         UserDTO _userInfo;
@@ -29,7 +29,7 @@ namespace Application.CQRS.Users.Commands.UpdateUser
             }
             try
             {
-                _userRepository.UpdateUser(_userInfo.ID, changes);
+                _userRepository.UpdateUser(_userInfo.Id, changes);
                 return Task.FromResult("User updated");
             }
             catch(Exception e)
@@ -39,4 +39,5 @@ namespace Application.CQRS.Users.Commands.UpdateUser
             
         }
     }
+  */
 }

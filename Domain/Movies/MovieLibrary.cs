@@ -7,15 +7,18 @@ using System.Threading.Tasks;
 
 namespace Domain.Movies
 {
-    public class MovieLibrary : IEnumerable
+    public class MovieLibrary  //: IEnumerable
     {
-        List<Movie> _movies;
+        //List<Movie> _movies;
 
-        public IEnumerator GetEnumerator()
+        public List<Movie> Movies { get; set; }
+ 
+        /*public IEnumerator GetEnumerator()
         {
             return _movies.GetEnumerator();
-        }
-
+        }*/
+        
+        
         
     }
 }

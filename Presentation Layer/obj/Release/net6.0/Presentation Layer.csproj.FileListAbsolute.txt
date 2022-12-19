@@ -1,0 +1,5 @@
+C:\Users\Edi\Desktop\Internship Amdaris\Proiect\Wafend\CineFiend\Presentation Layer\obj\Release\net6.0\Presentation Layer.csproj.AssemblyReference.cache
+C:\Users\Edi\Desktop\Internship Amdaris\Proiect\Wafend\CineFiend\Presentation Layer\obj\Release\net6.0\Presentation Layer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Edi\Desktop\Internship Amdaris\Proiect\Wafend\CineFiend\Presentation Layer\obj\Release\net6.0\Presentation Layer.AssemblyInfoInputs.cache
+C:\Users\Edi\Desktop\Internship Amdaris\Proiect\Wafend\CineFiend\Presentation Layer\obj\Release\net6.0\Presentation Layer.AssemblyInfo.cs
+C:\Users\Edi\Desktop\Internship Amdaris\Proiect\Wafend\CineFiend\Presentation Layer\obj\Release\net6.0\Presentation Layer.csproj.CoreCompileInputs.cache

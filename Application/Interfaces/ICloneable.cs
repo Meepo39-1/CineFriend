@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Application.Interfaces
 {
-     public interface ICloneable<T> where T : Icloneable<T>
+     public interface ICloneable<T>
 
     {
         T Clone();

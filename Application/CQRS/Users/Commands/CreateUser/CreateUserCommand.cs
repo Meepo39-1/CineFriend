@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Application.CQRS.Users.Commands.CreateUser
 {
-    public class CreateUserCommand : IRequest<string>
+    public class CreateUserCommand : IRequest<bool>
     {
         public UserDTO userInfo;
 

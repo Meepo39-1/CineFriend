@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace Application.CQRS.Users.Commands.DeleteUser
 {
-    public class DeleteUserCommand : IRequest<string>
+  /*  public class DeleteUserCommand : IRequest<string>
     {
         public UserDTO userDTO;
-    }
+    }*/
 }

@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Application.CQRS.Users.Commands.UpdateUser
 {
-    internal class UserDTO
+    public class UserDTO
     {
+        public String Id { get; set; }
     }
 }

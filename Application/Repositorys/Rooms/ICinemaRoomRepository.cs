@@ -8,23 +8,23 @@ using System.Threading.Tasks;
 
 namespace Application.Repositorys.Rooms
 {
-    public interface ICinemaRoomRepository : ISocializer, IHost
+    public interface ICinemaRoomRepository //: ISocializer, IHost
     {
-        void CreateCinemaRoom(CinemaRoom cinemaRoomData);
-        
+        public Task<int> CreateCinemaRoom(CinemaRoom cinemaRoomData);
 
-        void UpdateCinemaRoom(CinemaRoom cinemaRoomData);
 
-        void DeleteCinemaRoom(CinemaRoom cinemaRoomData);
+       // public Task<int> UpdateCinemaRoom(CinemaRoom cinemaRoomData);
 
-        void DeleteCinemaRoom(string adminID);
-        void RemoveCinemaRoom(CinemaRoom cinemaRoomData);
+        public Task<bool> DeleteCinemaRoom(CinemaRoom cinemaRoomData);
 
-        CinemaRoom GetCinemaRoom(string adminID);
+      //  public Task<bool> DeleteCinemaRoom(string adminID);
+        // RemoveCinemaRoom(CinemaRoom cinemaRoomData);
 
-        Chat GetRoomChat(string cinemaRoomID);
+        public Task<CinemaRoom> GetCinemaRoom(int CinemaId);
 
-        void Invite(string link);
+        //public Task<Chat> GetRoomChat(string cinemaRoomID);
+
+        //void Invite(string link);
 
     }
 }

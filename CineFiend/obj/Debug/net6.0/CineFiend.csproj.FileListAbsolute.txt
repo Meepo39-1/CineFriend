@@ -1,0 +1,14 @@
+C:\Users\Edi\Desktop\Internship Amdaris\Proiect\Wafend\CineFiend\CineFiend\bin\Debug\net6.0\CineFiend.deps.json
+C:\Users\Edi\Desktop\Internship Amdaris\Proiect\Wafend\CineFiend\CineFiend\bin\Debug\net6.0\CineFiend.dll
+C:\Users\Edi\Desktop\Internship Amdaris\Proiect\Wafend\CineFiend\CineFiend\bin\Debug\net6.0\CineFiend.pdb
+C:\Users\Edi\Desktop\Internship Amdaris\Proiect\Wafend\CineFiend\CineFiend\obj\Debug\net6.0\CineFiend.csproj.AssemblyReference.cache
+C:\Users\Edi\Desktop\Internship Amdaris\Proiect\Wafend\CineFiend\CineFiend\obj\Debug\net6.0\CineFiend.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Edi\Desktop\Internship Amdaris\Proiect\Wafend\CineFiend\CineFiend\obj\Debug\net6.0\CineFiend.AssemblyInfoInputs.cache
+C:\Users\Edi\Desktop\Internship Amdaris\Proiect\Wafend\CineFiend\CineFiend\obj\Debug\net6.0\CineFiend.AssemblyInfo.cs
+C:\Users\Edi\Desktop\Internship Amdaris\Proiect\Wafend\CineFiend\CineFiend\obj\Debug\net6.0\CineFiend.csproj.CoreCompileInputs.cache
+C:\Users\Edi\Desktop\Internship Amdaris\Proiect\Wafend\CineFiend\CineFiend\obj\Debug\net6.0\CineFiend.dll
+C:\Users\Edi\Desktop\Internship Amdaris\Proiect\Wafend\CineFiend\CineFiend\obj\Debug\net6.0\refint\CineFiend.dll
+C:\Users\Edi\Desktop\Internship Amdaris\Proiect\Wafend\CineFiend\CineFiend\obj\Debug\net6.0\CineFiend.pdb
+C:\Users\Edi\Desktop\Internship Amdaris\Proiect\Wafend\CineFiend\CineFiend\obj\Debug\net6.0\ref\CineFiend.dll
+C:\Users\Edi\Desktop\Internship Amdaris\Proiect\Wafend\CineFiend\CineFiend\bin\Debug\net6.0\CineFiend.runtimeconfig.json
+C:\Users\Edi\Desktop\Internship Amdaris\Proiect\Wafend\CineFiend\CineFiend\obj\Debug\net6.0\CineFiend.genruntimeconfig.cache

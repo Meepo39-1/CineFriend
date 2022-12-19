@@ -10,13 +10,9 @@ namespace Application.CQRS.Users.Commands.CreateUser
 {
     public class UserDTO
     {
-        public MovieLibrary movies;
-        public string ID { get; set; }
         public string Name { get; set; }
 
         public string Password { get; set; }
-        public MovieLibrary Movies { get; }
 
-        public FriendList Friends { get; }
     }
 }

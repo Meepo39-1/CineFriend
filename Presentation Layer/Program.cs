@@ -1,8 +1,11 @@
 ﻿using MediatR;
-using Application.Users.Commands.CreateUser;
-using Microsoft.Extensions.DependencyInjection;
+
 using Infrastructure.InMemoryRepositorys;
 using Application.Repositorys.Users;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.EntityFrameworkCore;
+using Infrastructure.EntityFrameworkDatabase;
+using Infrastructure.EntityFrameworkDataBase.Data;
 
 public class Program
 {
@@ -54,14 +57,27 @@ public class Program
     
    
 
-    static async void Main()
+    static void Main()
     {
-        var diContainer = new ServiceCollection()
+        /*var diContainer = new ServiceCollection()
+
             .AddScoped<IUserRepository, InMemoryUserRepository>()
             .AddMediatR(typeof(IUserRepository))
-            .BuildServiceProvider();
+               .AddDbContext<Infrastructure.EntityFrameworkDataBase.Data.ApplicationDbContext>(
+            options => options.UseSqlServer())
 
-        var mediator = diContainer.GetRequiredService<IMediator>();
+            .BuildServiceProvider();*/
+       
+        /*var diContainer = new ServiceCollection().
+                AddDbContext<ApplicationDbContext>(
+            options => options.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog = BazaDeDateProiectEdi; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"
+      ))
+                .BuildServiceProvider();
+        
+        */
+     
+
+     /*   var mediator = diContainer.GetRequiredService<IMediator>();
 
         var UserId = await mediator.Send(new CreateUserCommand
         {
@@ -72,7 +88,7 @@ public class Program
         {
             UserId = UserId,
             Message = message
-        }); ;
+        }); ;*/
 
         
         
