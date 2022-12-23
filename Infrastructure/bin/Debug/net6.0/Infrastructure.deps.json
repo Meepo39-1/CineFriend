@@ -1474,6 +1474,7 @@
       "Domain/1.0.0": {
         "dependencies": {
           "MediatR.Extensions.Microsoft.DependencyInjection": "11.0.0",
+          "Microsoft.EntityFrameworkCore": "7.0.1",
           "Microsoft.Extensions.DependencyInjection": "7.0.0"
         },
         "runtime": {

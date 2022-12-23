@@ -37,7 +37,7 @@ namespace Infrastructure.EFRepositoryies.Rooms
 
         public Task<Chat> GetChat(int chatId)
         {
-            var chatRecord = _dbContext.ChatRooms.First(c => c.Id == chatId);
+            var chatRecord = _dbContext.Chats.First(c => c.Id == chatId);
 
             var newDomainChat = new Chat();
             var domainMessages = new List<Message>();

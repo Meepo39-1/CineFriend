@@ -17,6 +17,8 @@ namespace Application.Repositorys
         public IMoviePlayerRepository MoviePlayerRepository { get; }
         public IChatRepository ChatRepository { get; }
 
+        public IMovieRepository MovieRepository { get; }
+
         public Task<bool> BeginTransaction();
         public Task<bool> CommitTransaction();
         

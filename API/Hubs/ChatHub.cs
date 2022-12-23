@@ -4,11 +4,22 @@ using Microsoft.AspNetCore.SignalR;
 namespace API.Hubs
 
 {
-   
-    public class ChatHub: Hub <Application.Services.IRealTimeMessageService>
+    public interface IRealTimeMessageService
     {
-        public async Task SendMessage(Message message)
+        //wait to talk with mentor
+        //public Task SendMessage(Message message, string GroupName);
 
-        => await Clients.All.RecieveMessage(message);
+        public Task RecieveMessage(Message message);
+
+    }
+
+
+    public class ChatHub: Hub <IRealTimeMessageService>
+    {
+        public async Task SendMessageToGroupChat(Message message, string groupChatName)
+
+            => await Clients.Group(groupChatName).RecieveMessage(message);
+
+        
     }
 }

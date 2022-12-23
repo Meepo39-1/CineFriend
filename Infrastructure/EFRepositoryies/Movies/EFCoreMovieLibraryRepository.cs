@@ -40,7 +40,7 @@ namespace Infrastructure.EFRepositoryies.Movies
 
         public Task<MovieLibrary> GetMovieLibrary(int userId)
         {
-            var movieLibRecord = _dbContext.MovieLibraries.First(m => m.UserTypeId == userId);
+            var movieLibRecord = _dbContext.MovieLibraries.First(m => m.UserId == userId);
 
             var domainMovieLib = new MovieLibrary();
             var movieList = new List<Movie>();
@@ -49,7 +49,7 @@ namespace Infrastructure.EFRepositoryies.Movies
             {
                 var domainMovie = new Movie();
                 domainMovie.Name = movie.Name;
-                domainMovie.ID = movie.Id;
+                domainMovie.Id = movie.Id;
                 domainMovie.Rating = movie.Rating;
                 domainMovie.Genre = movie.Genre;
                 movieList.Add(domainMovie);

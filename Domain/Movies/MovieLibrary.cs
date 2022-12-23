@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Domain.Users;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,16 +10,13 @@ namespace Domain.Movies
 {
     public class MovieLibrary  //: IEnumerable
     {
-        //List<Movie> _movies;
+        public int Id { get; set; }
 
-        public List<Movie> Movies { get; set; }
- 
-        /*public IEnumerator GetEnumerator()
-        {
-            return _movies.GetEnumerator();
-        }*/
-        
-        
-        
+
+        public User User { get; set; }
+        public int UserId { get; set; }
+        /// 1 library to many movies
+        public List<Movie>? Movies { get; set; }
+
     }
 }

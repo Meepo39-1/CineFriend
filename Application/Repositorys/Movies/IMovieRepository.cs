@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Domain.Movies;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,7 @@ namespace Application.Repositorys.Movies
 {
     public interface IMovieRepository
     {
-        public void CreateMovie();
-        public void GetMovie();
+        public Task<bool> CreateMovie(Movie movie);
+        public Task<bool> GetMovie(int movieId);
     }
 }

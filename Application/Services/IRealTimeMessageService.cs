@@ -13,7 +13,7 @@ namespace Application.Services
         //wait to talk with mentor
         //public Task SendMessage(Message message, string GroupName);
 
-        public Task RecieveMessage(Message message);
+        public Task SendMessageToGroupChat(Message message);
 
     }
    

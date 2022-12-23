@@ -44,6 +44,8 @@ namespace Infrastructure.EFRepositoryies
         public IMoviePlayerRepository MoviePlayerRepository { get; private set; }
         public IChatRepository ChatRepository { get; private set; }
 
+        public IMovieRepository MovieRepository => throw new NotImplementedException();
+
         public Task<bool> BeginTransaction()
         {
             try

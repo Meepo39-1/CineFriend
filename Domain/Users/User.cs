@@ -11,21 +11,20 @@ namespace Domain.Users;
 
     public class User 
     {
-        public MovieLibrary movieLibrary { get; set; }
-        public int Id { get; set; }
-        public string Name { get; set; }
-        
-        public string Password { get; set; }
-        
 
-        //protected FriendList Friends { get; }
+    public int Id { get; set; }
+    public string Name { get; set; }
 
-        public CinemaRoom adminCinema;
+    public string Password { get; set; }
 
-        public List<CinemaRoom> guestCinemas;
 
-        
+    //1 to 1
+    public MovieLibrary MovieLibrary { get; set; }
 
-        //public abstract User Clone();
-    }
+    //1 to 1
+    public CinemaRoom AdminCinema { get; set; }
+
+    //many to many
+    public ICollection<GuestCinemaRoomInvitation>? guestCinemas { get; set; }
+}
 

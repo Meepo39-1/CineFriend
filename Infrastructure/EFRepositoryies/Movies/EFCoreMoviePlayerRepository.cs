@@ -41,7 +41,7 @@ namespace Infrastructure.EFRepositoryies.Movies
 
         public Task<MoviePlayer> GetMoviePlayer(int cinemaRoomId)
         {
-            var moviePlayerRecord = _dbContext.MoviePlayers.First(m => m.CinemaRoomTypeId == cinemaRoomId);
+            var moviePlayerRecord = _dbContext.MoviePlayers.First(m => m.CinemaRoomId == cinemaRoomId);
 
             var moviePlayerDomain = new MoviePlayer();
 

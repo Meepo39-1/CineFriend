@@ -31,7 +31,7 @@ namespace Infrastructure.EFRepositoryies.Rooms
             var cinemaRoomRecord = new CinemaRoomType();
             cinemaRoomRecord.UserTypeId = cinemaRoomData.Admin.Id;
 
-            _dbcontext.Add(cinemaRoomRecord);
+            _dbcontext.Add(cinemaRoomData);
             _dbcontext.SaveChanges();
 
             return cinemaRoomRecord.Id;

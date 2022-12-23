@@ -19,7 +19,8 @@ using Application.Repositorys.Movies;
 using Infrastructure.EFRepositoryies.Movies;
 using Application.Services;
 using Infrastructure.Hubs;
-
+using Microsoft.AspNetCore.SignalR;
+using API.Hubs;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -83,12 +84,19 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+
+
+app.UseHttpsRedirection();
+
+app.UseAuthorization();
+
 /*
 app.Use(async (context, next) =>
 {
     var hubContext = context.RequestServices
-                            .GetRequiredService<IHubContext<ChatHub>>();
-    //...
+                            .GetRequiredService<IHubContext<CinemaConnectionHub>>();
+
 
     if (next != null)
     {
@@ -97,13 +105,9 @@ app.Use(async (context, next) =>
 });
 */
 
-//app.MapHub<ChatHub>("/Chat");
-app.UseHttpsRedirection();
-
-app.UseAuthorization();
-
 app.MapControllers();
-
+app.MapHub<CinemaConnectionHub>("/CinemaConnectionHub");
+app.MapHub<ChatHub>("/ChatHub");
 app.Run();
 /*
 var mediator = app.Services.GetRequiredService<IMediator>();

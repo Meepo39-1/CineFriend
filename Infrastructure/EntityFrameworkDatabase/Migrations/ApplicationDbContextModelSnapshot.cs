@@ -22,49 +22,7 @@ namespace Infrastructure.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("Infrastructure.EntityFrameworkDatabase.Models.Movies.MovieLibraryType", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("UserTypeId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserTypeId")
-                        .IsUnique();
-
-                    b.ToTable("MovieLibraries");
-                });
-
-            modelBuilder.Entity("Infrastructure.EntityFrameworkDatabase.Models.Movies.MoviePlayerType", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("CinemaRoomTypeId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Language")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CinemaRoomTypeId")
-                        .IsUnique();
-
-                    b.ToTable("MoviePlayers");
-                });
-
-            modelBuilder.Entity("Infrastructure.EntityFrameworkDatabase.Models.Movies.MovieType", b =>
+            modelBuilder.Entity("Domain.Movies.Movie", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -80,7 +38,11 @@ namespace Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("MovieLibraryTypeId")
+                    b.Property<string>("Location")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("MovieLibraryId")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -92,12 +54,12 @@ namespace Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("MovieLibraryTypeId");
+                    b.HasIndex("MovieLibraryId");
 
                     b.ToTable("Movies");
                 });
 
-            modelBuilder.Entity("Infrastructure.EntityFrameworkDatabase.Models.Rooms.ChatRoomType", b =>
+            modelBuilder.Entity("Domain.Movies.MovieLibrary", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -105,17 +67,18 @@ namespace Infrastructure.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("CinemaRoomTypeId")
+                    b.Property<int>("UserId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CinemaRoomTypeId");
+                    b.HasIndex("UserId")
+                        .IsUnique();
 
-                    b.ToTable("ChatRooms");
+                    b.ToTable("MovieLibraries");
                 });
 
-            modelBuilder.Entity("Infrastructure.EntityFrameworkDatabase.Models.Rooms.CinemaRoomType", b =>
+            modelBuilder.Entity("Domain.Movies.MoviePlayer", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -123,23 +86,65 @@ namespace Infrastructure.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("UserTypeId")
+                    b.Property<int>("CinemaRoomId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Language")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CinemaRoomId")
+                        .IsUnique();
+
+                    b.ToTable("MoviePlayers");
+                });
+
+            modelBuilder.Entity("Domain.Rooms.Chat", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("CinemaRoomId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserTypeId")
+                    b.HasIndex("CinemaRoomId")
+                        .IsUnique();
+
+                    b.ToTable("Chats");
+                });
+
+            modelBuilder.Entity("Domain.Rooms.CinemaRoom", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId")
                         .IsUnique();
 
                     b.ToTable("CinemaRooms");
                 });
 
-            modelBuilder.Entity("Infrastructure.EntityFrameworkDatabase.Models.Rooms.GuestCinemaRoomInvitation", b =>
+            modelBuilder.Entity("Domain.Rooms.GuestCinemaRoomInvitation", b =>
                 {
-                    b.Property<int?>("CinemaRoomTypeId")
+                    b.Property<int?>("CinemaRoomId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("UserTypeId")
+                    b.Property<int?>("UserId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("Date")
@@ -152,14 +157,14 @@ namespace Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("CinemaRoomTypeId", "UserTypeId");
+                    b.HasKey("CinemaRoomId", "UserId");
 
-                    b.HasIndex("UserTypeId");
+                    b.HasIndex("UserId");
 
                     b.ToTable("GuestCinemaRoomInvitation");
                 });
 
-            modelBuilder.Entity("Infrastructure.EntityFrameworkDatabase.Models.Rooms.MessageType", b =>
+            modelBuilder.Entity("Domain.Rooms.Message", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -188,7 +193,7 @@ namespace Infrastructure.Migrations
                     b.ToTable("Messages");
                 });
 
-            modelBuilder.Entity("Infrastructure.EntityFrameworkDatabase.Models.Users.UserType", b =>
+            modelBuilder.Entity("Domain.Users.User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -209,71 +214,71 @@ namespace Infrastructure.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("Infrastructure.EntityFrameworkDatabase.Models.Movies.MovieLibraryType", b =>
+            modelBuilder.Entity("Domain.Movies.Movie", b =>
                 {
-                    b.HasOne("Infrastructure.EntityFrameworkDatabase.Models.Users.UserType", "User")
-                        .WithOne("MovieLibrary")
-                        .HasForeignKey("Infrastructure.EntityFrameworkDatabase.Models.Movies.MovieLibraryType", "UserTypeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("Infrastructure.EntityFrameworkDatabase.Models.Movies.MoviePlayerType", b =>
-                {
-                    b.HasOne("Infrastructure.EntityFrameworkDatabase.Models.Rooms.CinemaRoomType", "CinemaRoom")
-                        .WithOne("MoviePlayer")
-                        .HasForeignKey("Infrastructure.EntityFrameworkDatabase.Models.Movies.MoviePlayerType", "CinemaRoomTypeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("CinemaRoom");
-                });
-
-            modelBuilder.Entity("Infrastructure.EntityFrameworkDatabase.Models.Movies.MovieType", b =>
-                {
-                    b.HasOne("Infrastructure.EntityFrameworkDatabase.Models.Movies.MovieLibraryType", "MovieLibrary")
+                    b.HasOne("Domain.Movies.MovieLibrary", "MovieLibrary")
                         .WithMany("Movies")
-                        .HasForeignKey("MovieLibraryTypeId")
+                        .HasForeignKey("MovieLibraryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("MovieLibrary");
                 });
 
-            modelBuilder.Entity("Infrastructure.EntityFrameworkDatabase.Models.Rooms.ChatRoomType", b =>
+            modelBuilder.Entity("Domain.Movies.MovieLibrary", b =>
                 {
-                    b.HasOne("Infrastructure.EntityFrameworkDatabase.Models.Rooms.CinemaRoomType", "CinemaRoom")
-                        .WithMany()
-                        .HasForeignKey("CinemaRoomTypeId")
+                    b.HasOne("Domain.Users.User", "User")
+                        .WithOne("MovieLibrary")
+                        .HasForeignKey("Domain.Movies.MovieLibrary", "UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Domain.Movies.MoviePlayer", b =>
+                {
+                    b.HasOne("Domain.Rooms.CinemaRoom", "CinemaRoom")
+                        .WithOne("MoviePlayer")
+                        .HasForeignKey("Domain.Movies.MoviePlayer", "CinemaRoomId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("CinemaRoom");
                 });
 
-            modelBuilder.Entity("Infrastructure.EntityFrameworkDatabase.Models.Rooms.CinemaRoomType", b =>
+            modelBuilder.Entity("Domain.Rooms.Chat", b =>
                 {
-                    b.HasOne("Infrastructure.EntityFrameworkDatabase.Models.Users.UserType", "Admin")
+                    b.HasOne("Domain.Rooms.CinemaRoom", "CinemaRoom")
+                        .WithOne("Chat")
+                        .HasForeignKey("Domain.Rooms.Chat", "CinemaRoomId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("CinemaRoom");
+                });
+
+            modelBuilder.Entity("Domain.Rooms.CinemaRoom", b =>
+                {
+                    b.HasOne("Domain.Users.User", "Admin")
                         .WithOne("AdminCinema")
-                        .HasForeignKey("Infrastructure.EntityFrameworkDatabase.Models.Rooms.CinemaRoomType", "UserTypeId")
+                        .HasForeignKey("Domain.Rooms.CinemaRoom", "UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Admin");
                 });
 
-            modelBuilder.Entity("Infrastructure.EntityFrameworkDatabase.Models.Rooms.GuestCinemaRoomInvitation", b =>
+            modelBuilder.Entity("Domain.Rooms.GuestCinemaRoomInvitation", b =>
                 {
-                    b.HasOne("Infrastructure.EntityFrameworkDatabase.Models.Rooms.CinemaRoomType", "CinemaRoom")
+                    b.HasOne("Domain.Rooms.CinemaRoom", "CinemaRoom")
                         .WithMany("Guests")
-                        .HasForeignKey("CinemaRoomTypeId")
+                        .HasForeignKey("CinemaRoomId")
                         .OnDelete(DeleteBehavior.NoAction);
 
-                    b.HasOne("Infrastructure.EntityFrameworkDatabase.Models.Users.UserType", "User")
+                    b.HasOne("Domain.Users.User", "User")
                         .WithMany("guestCinemas")
-                        .HasForeignKey("UserTypeId")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.NoAction);
 
                     b.Navigation("CinemaRoom");
@@ -281,9 +286,9 @@ namespace Infrastructure.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("Infrastructure.EntityFrameworkDatabase.Models.Rooms.MessageType", b =>
+            modelBuilder.Entity("Domain.Rooms.Message", b =>
                 {
-                    b.HasOne("Infrastructure.EntityFrameworkDatabase.Models.Rooms.ChatRoomType", "Chat")
+                    b.HasOne("Domain.Rooms.Chat", "Chat")
                         .WithMany("Messages")
                         .HasForeignKey("ChatId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -292,25 +297,28 @@ namespace Infrastructure.Migrations
                     b.Navigation("Chat");
                 });
 
-            modelBuilder.Entity("Infrastructure.EntityFrameworkDatabase.Models.Movies.MovieLibraryType", b =>
+            modelBuilder.Entity("Domain.Movies.MovieLibrary", b =>
                 {
                     b.Navigation("Movies");
                 });
 
-            modelBuilder.Entity("Infrastructure.EntityFrameworkDatabase.Models.Rooms.ChatRoomType", b =>
+            modelBuilder.Entity("Domain.Rooms.Chat", b =>
                 {
                     b.Navigation("Messages");
                 });
 
-            modelBuilder.Entity("Infrastructure.EntityFrameworkDatabase.Models.Rooms.CinemaRoomType", b =>
+            modelBuilder.Entity("Domain.Rooms.CinemaRoom", b =>
                 {
+                    b.Navigation("Chat")
+                        .IsRequired();
+
                     b.Navigation("Guests");
 
                     b.Navigation("MoviePlayer")
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Infrastructure.EntityFrameworkDatabase.Models.Users.UserType", b =>
+            modelBuilder.Entity("Domain.Users.User", b =>
                 {
                     b.Navigation("AdminCinema")
                         .IsRequired();

@@ -9,6 +9,7 @@ using Domain.Rooms;
 using Infrastructure.EntityFrameworkDatabase.Models.Rooms;
 using CinemaRoom = Infrastructure.EntityFrameworkDatabase.Models.Rooms.CinemaRoomType;
 using Infrastructure.EntityFrameworkDatabase.Models.Movies;
+using GuestCinemaRoomInvitation = Domain.Rooms.GuestCinemaRoomInvitation;
 
 namespace Infrastructure.EntityFrameworkDatabase.Models.Users
 {

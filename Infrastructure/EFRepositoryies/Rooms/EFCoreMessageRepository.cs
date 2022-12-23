@@ -26,7 +26,7 @@ namespace Infrastructure.EFRepositoryies.Rooms
             messageRecord.Content = message.Content;
             messageRecord.Sender = message.Sender;
 
-           _dbContext.Messages.Add(messageRecord);
+           _dbContext.Messages.Add(message);
            _dbContext.SaveChanges();
 
             return true; 

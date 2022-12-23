@@ -8,14 +8,14 @@ namespace Domain.Rooms
 {
     public class Chat
     {
+        //1 to many
         public int Id { get; set; }
-        List<Message> _messages;
+        public List<Message>? Messages { get; set; }
 
-        public List<Message> Messages
-        {
-            get { return _messages; }
-            set { _messages = value; }
-        }
+
+
+        public int CinemaRoomId { get; set; }
+        public CinemaRoom CinemaRoom { get; set; }
 
     }
 }

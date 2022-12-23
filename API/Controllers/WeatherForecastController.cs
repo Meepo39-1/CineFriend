@@ -9,6 +9,7 @@ using Domain.Rooms;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
+using IRealTimeMessageService = API.Hubs.IRealTimeMessageService;
 using UserDTO = Application.CQRS.Users.Commands.CreateUser.UserDTO;
 
 namespace API.Controllers
@@ -53,21 +54,7 @@ namespace API.Controllers
          }
         */
         /*
-        [HttpGet(Name = "GetWeatherForecast")]
-         public async Task<string> UpdateUser()
-         {
-             var userFromRequest = new Application.CQRS.Users.Commands.UpdateUser.UserDTO();
-             userFromRequest.Id = 1007;
-             userFromRequest.UserName = "Edi";
-             userFromRequest.Password = "parola";
-
-             var message = await _mediator.Send(new UpdateUserCommand
-             {
-                 userInfo = userFromRequest
-             });
-             // _logger.LogDebug("!!!!!!1MEDIATOR CALLED!!!!!");
-
-             return message.ToString();
+        
 
          }*/
 
@@ -117,7 +104,7 @@ namespace API.Controllers
         public async void SendMessageToUsers(Message message)
         {
             await _hubContext.Clients.All.RecieveMessage(message);
-
+            
         }
         
     }
