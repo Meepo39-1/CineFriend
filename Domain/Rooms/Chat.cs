@@ -8,10 +8,10 @@ namespace Domain.Rooms
 {
     public class Chat
     {
-       
-        List<string> _messages;
+        public int Id { get; set; }
+        List<Message> _messages;
 
-        public List<string> Messages
+        public List<Message> Messages
         {
             get { return _messages; }
             set { _messages = value; }

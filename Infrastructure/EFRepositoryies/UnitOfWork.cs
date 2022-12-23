@@ -23,7 +23,7 @@ namespace Infrastructure.EFRepositoryies
 
 
         public UnitOfWork(ApplicationDbContext dbContext, IUserRepository userRepository, ICinemaRoomRepository cinemaRepository,
-            IMoviePlayerRepository moviePlayerRepository, IChatRepository chatRepository, IMovieLibraryRepository movieLibraryRepository)
+            IMoviePlayerRepository moviePlayerRepository, IChatRepository chatRepository, IMovieLibraryRepository movieLibraryRepository, IMessageRepository messageRepository)
         {
             _dbContext = dbContext;
              UserRepository = userRepository;
@@ -31,9 +31,11 @@ namespace Infrastructure.EFRepositoryies
             MovieLibraryRepository = movieLibraryRepository;
             ChatRepository = chatRepository;
             MoviePlayerRepository = moviePlayerRepository;
+            MessageRepository = messageRepository;
         }
 
         public IUserRepository UserRepository { get; private set; }
+        public IMessageRepository MessageRepository { get; private set; }
 
         public ICinemaRoomRepository CinemaRoomRepository { get; private set; }
 

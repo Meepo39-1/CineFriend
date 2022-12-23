@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace Application.Repositorys
 {
     public interface IUnitOfWork : IDisposable
-    {
+    {   public IMessageRepository MessageRepository { get; }
         public IUserRepository UserRepository { get;  }
         public IMovieLibraryRepository MovieLibraryRepository { get;}
         public ICinemaRoomRepository CinemaRoomRepository { get; }

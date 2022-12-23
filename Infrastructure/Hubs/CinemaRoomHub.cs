@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.Hubs
 {
-    internal class CinemaRoomHub 
+    public class CinemaRoomHub 
     {
         async Task UpdateUsers()
         {

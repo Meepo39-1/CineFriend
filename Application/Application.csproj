@@ -9,6 +9,7 @@
   <ItemGroup>
     <PackageReference Include="MediatR" Version="11.1.0" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+    <PackageReference Include="Microsoft.AspNet.SignalR.Core" Version="2.4.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.1">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -22,7 +23,8 @@
 
   <ItemGroup>
     <Folder Include="CQRS\Movies\" />
-    <Folder Include="CQRS\Rooms\" />
+    <Folder Include="CQRS\Rooms\ChatRooms\Queries\" />
+    <Folder Include="CQRS\Rooms\CinemaRoomS\" />
   </ItemGroup>
 
 </Project>

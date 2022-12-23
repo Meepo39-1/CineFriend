@@ -40,7 +40,19 @@ namespace Infrastructure.EFRepositoryies.Rooms
             var chatRecord = _dbContext.ChatRooms.First(c => c.Id == chatId);
 
             var newDomainChat = new Chat();
-            newDomainChat.Messages = chatRecord.Messages.Select(m => m.Content).ToList();
+            var domainMessages = new List<Message>();
+            
+
+            foreach(var recordMessage in chatRecord.Messages)
+            {
+                var domainMessage = new Message();
+                domainMessage.Id = recordMessage.Id;
+                domainMessage.Sender = recordMessage.Sender;
+                domainMessage.Content = recordMessage.Content;
+                domainMessage.DateTime = recordMessage.DateTime;
+                domainMessages.Add(domainMessage);
+            }
+            newDomainChat.Messages = domainMessages;
 
             return Task.FromResult(newDomainChat);
         }

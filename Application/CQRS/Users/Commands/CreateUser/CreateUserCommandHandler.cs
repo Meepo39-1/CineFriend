@@ -62,6 +62,8 @@ namespace Application.CQRS.Users.Commands.CreateUser
                 newCinema.Id = cinemaRoomId;
                 
                 await _unitOfWork.MoviePlayerRepository.CreateMoviePlayer(newCinema);
+
+                newCinema.Chat = new Chat();
                 await _unitOfWork.ChatRepository.CreateChat(newCinema);
 
             //saving changes if all commands worked       

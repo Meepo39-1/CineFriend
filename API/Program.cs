@@ -17,6 +17,9 @@ using Infrastructure.EFRepositoryies.Rooms;
 using Infrastructure.EFRepositoryies.Users;
 using Application.Repositorys.Movies;
 using Infrastructure.EFRepositoryies.Movies;
+using Application.Services;
+using Infrastructure.Hubs;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -47,12 +50,17 @@ builder.Services.AddScoped<IUserRepository, EFCoreUserRepository>();
 builder.Services.AddScoped<IMovieLibraryRepository, EFCoreMovieLibraryRepository>();
 builder.Services.AddScoped<IMoviePlayerRepository, EFCoreMoviePlayerRepository>();
 builder.Services.AddScoped<IChatRepository, EFCoreChatRepository>();
+builder.Services.AddScoped<IMessageRepository, EFCoreMessageRepository>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+/*builder.Services.AddScoped<IRealTimeVideoService, MovieHub>();
+builder.Services.AddScoped<IRealTime>*/
 
 builder.Services.AddMediatR(typeof(IUserRepository));
 builder.Services.AddMediatR(typeof(EFCoreCinemaRepository));
 builder.Services.AddMediatR(typeof(Program));
 
+builder.Services.AddSignalR();
 
 /*
 builder.Services
@@ -75,8 +83,21 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+/*
+app.Use(async (context, next) =>
+{
+    var hubContext = context.RequestServices
+                            .GetRequiredService<IHubContext<ChatHub>>();
+    //...
 
+    if (next != null)
+    {
+        await next.Invoke();
+    }
+});
+*/
 
+//app.MapHub<ChatHub>("/Chat");
 app.UseHttpsRedirection();
 
 app.UseAuthorization();

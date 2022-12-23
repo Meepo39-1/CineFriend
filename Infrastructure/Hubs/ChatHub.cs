@@ -1,18 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿//using Application.Services;
+using Application.Services;
 
 namespace Infrastructure.Hubs
 {
-    internal class ChatHub
+  /*  public class ChatHub : Hub<IRealTimeMessageService>
     {
+        public async Task SendMessage(Message message)
+     
+            =>  await Clients.All.RecieveMessage(message);
 
-       async Task UpdateChatForGroup()
-        {
-
-        }
+      
+        
     }
+  */
 }

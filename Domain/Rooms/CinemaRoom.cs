@@ -13,7 +13,7 @@ namespace Domain.Rooms
         public int Id { get; set; }
         public string name { get; set; }
         public MoviePlayer MoviePlayer { get; set; }
-        public Chat Chat { get; }
+        public Chat Chat { get; set; }
 
         public List<User> Guests { get; set; }
         public User Admin { get; set; }
