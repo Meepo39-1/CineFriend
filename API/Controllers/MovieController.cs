@@ -1,5 +1,6 @@
 ﻿using API.Hubs;
 using Application.CQRS.Movies.MovieLibraries.Commands.UploadMovie;
+using Application.CQRS.Movies.MovieLibraries.Querys.GetMovie;
 using Application.CQRS.Rooms.ChatRooms.Commands.AddMessage;
 using Application.Services;
 using Domain.Movies;
@@ -9,6 +10,7 @@ using MediatR;
 using Microsoft.AspNet.SignalR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using IRealTimeMessageService = API.Hubs.IRealTimeMessageService;
 
 namespace API.Controllers
@@ -51,6 +53,20 @@ namespace API.Controllers
            
             return message.ToString();
         }
+        [HttpGet("/getMovie", Name = "GetMovie")]
+        public async Task<FileContentResult> GetMovie(int id)
+        {
+
+            var data = await _mediator.Send(new GetMovieCommand
+            {
+                MovieId = id
+            });
+
+            //return new FileContentResult(data, "video/mp4");
+            return File(data, "video/mp4");
+            //return data;
+        }
+
         /*
         [HttpGet("/get", Name = "GetMovie")]
         public async Task<string> Movie(string reqLocation)

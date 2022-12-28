@@ -35,20 +35,20 @@ namespace Infrastructure.FileServices
         }
 
     
-        public async Task<string> UploadMovieToCloud(byte[] movieData, string movieName)
+        public async Task<string> UploadMovieToCloud(byte[] movieData, Movie movieModel)
         {
             
             var containerClient = GetBlobServiceClient(accountName, accountKey).GetBlobContainerClient(blobMovieContainerName);
 
             BinaryData binaryData = new BinaryData(movieData);
 
-            var response = await containerClient.UploadBlobAsync(movieName, binaryData);
+            var response = await containerClient.UploadBlobAsync(movieModel.Id.ToString(), binaryData);
            
 
             //BlobUploadOptions
             //blobClient.UploadAsync()
 
-            return $"https://{accountName}. blob.core.windows.net./{blobMovieContainerName}" + movieName;
+            return $"https://{accountName}. blob.core.windows.net./{blobMovieContainerName}" + movieModel.Id.ToString();
          
         }
      
@@ -56,6 +56,33 @@ namespace Infrastructure.FileServices
         public Task<string> UploadMovieToCloud(Movie movie)
         {
             throw new NotImplementedException();
+        }
+        
+       
+        public  async Task<byte[]> DownloadMovie(Movie movie)
+        {
+            BlobServiceClient blobServiceClient = GetBlobServiceClient(accountName, accountKey);
+            BlobContainerClient blobContainerClient = blobServiceClient.GetBlobContainerClient(blobMovieContainerName);
+            BlobClient blobClient = blobContainerClient.GetBlobClient(movie.Id.ToString());
+
+            var memoryStream = new MemoryStream(1000000);
+                               
+          
+
+
+
+                await blobClient.DownloadToAsync(memoryStream);
+            //de ce asa nu merge?
+            //BinaryReader binaryReader = new BinaryReader(memoryStream);
+            //var buffer = binaryReader.ReadBytes(memoryStream.Capacity);
+            var buffer = memoryStream.ToArray();
+          
+
+                return buffer;
+            
+
+            
+      
         }
     }
 }

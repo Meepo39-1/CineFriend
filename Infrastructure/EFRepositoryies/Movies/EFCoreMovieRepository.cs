@@ -28,7 +28,14 @@ namespace Infrastructure.EFRepositoryies.Movies
 
         public Task<Movie> GetMovie(int movieId)
         {
-            throw new NotImplementedException();
+            var movie = _dbContext.Movies.First(m => m.Id == movieId);
+            return Task.FromResult(movie);
+        }
+
+        public Task<bool> UpateMovie(Movie movie)
+        {
+            _dbContext.Movies.Update(movie);
+            return Task.FromResult(true);
         }
     }
 }

@@ -33,11 +33,14 @@ namespace Application.CQRS.Movies.MovieLibraries.Commands.UploadMovie
 
             try
             {
-                movie.Location = await _blobStorageService.UploadMovieToCloud(request.Movie.movieData, request.Movie.NAME);
-
+                movie.Location = "temporary location";
                 _unitOfWork.BeginTransaction();
                 _unitOfWork.MovieRepository.CreateMovie(movie);
-           
+
+                movie.Location = await _blobStorageService.UploadMovieToCloud(request.Movie.movieData, movie);
+
+                _unitOfWork.MovieRepository.UpateMovie(movie);
+
                 _unitOfWork.CommitTransaction();
             }
             catch(Exception ex)
