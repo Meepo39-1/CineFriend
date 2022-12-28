@@ -11,6 +11,7 @@ namespace API.Hubs
     public class CinemaConnectionHub : Hub<ICinemaConnectionHub>
     {
 
+        //numele grupului va fi furnizat de catre frontend
         public Task AddToGroup(string groupName)
                => Groups.AddToGroupAsync(Context.ConnectionId, groupName);
 

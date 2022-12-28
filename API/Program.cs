@@ -18,9 +18,9 @@ using Infrastructure.EFRepositoryies.Users;
 using Application.Repositorys.Movies;
 using Infrastructure.EFRepositoryies.Movies;
 using Application.Services;
-using Infrastructure.Hubs;
 using Microsoft.AspNetCore.SignalR;
 using API.Hubs;
+using Infrastructure.FileServices;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -52,7 +52,10 @@ builder.Services.AddScoped<IMovieLibraryRepository, EFCoreMovieLibraryRepository
 builder.Services.AddScoped<IMoviePlayerRepository, EFCoreMoviePlayerRepository>();
 builder.Services.AddScoped<IChatRepository, EFCoreChatRepository>();
 builder.Services.AddScoped<IMessageRepository, EFCoreMessageRepository>();
+builder.Services.AddScoped<IMovieRepository, EFCoreMovieRepository>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddScoped<IBlobStorageService, BlobStorageService>();
+builder.Services.AddScoped<IFileDownloadService, FileDownloadService>();
 
 /*builder.Services.AddScoped<IRealTimeVideoService, MovieHub>();
 builder.Services.AddScoped<IRealTime>*/
@@ -102,6 +105,7 @@ app.Use(async (context, next) =>
     {
         await next.Invoke();
     }
+
 });
 */
 

@@ -9,6 +9,7 @@ namespace Application.Services
 {
     public interface IBlobStorageService
     {
-        public string UploadMovieToCloud(Movie movie);
+        public Task<string> UploadMovieToCloud(Movie movie);
+        public Task<string> UploadMovieToCloud(byte[] movieData, string movieName);
     }
 }

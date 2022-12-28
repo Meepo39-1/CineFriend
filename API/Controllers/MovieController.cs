@@ -1,7 +1,10 @@
 ﻿using API.Hubs;
+using Application.CQRS.Movies.MovieLibraries.Commands.UploadMovie;
 using Application.CQRS.Rooms.ChatRooms.Commands.AddMessage;
 using Application.Services;
+using Domain.Movies;
 using Domain.Rooms;
+using Domain.Users;
 using MediatR;
 using Microsoft.AspNet.SignalR;
 using Microsoft.AspNetCore.Mvc;
@@ -24,33 +27,50 @@ namespace API.Controllers
             _cinemaConnectionHubContext = cinemaConnectionHubContext;
         }
 
-        [HttpGet(Name = "UploadMovie")]
-        public async Task<string> CreateMessage()
+        [HttpPost("/upload", Name = "UploadMovie")]
+        public async Task<string> UploadMovie(string reqMovieName, IFormFile formFile)
         {
-            var messageFromRequest = new Message
+            var fileReader = new BinaryReader(formFile.OpenReadStream());
+
+            byte[] reqMovieData = fileReader.ReadBytes((int)formFile.Length);
+
+            var movieFromRequest = new MovieDTO
             {
-                Sender = "Edi",
-                Content = "Buna",
-                Chat = new Chat { Id = 2 }
+                NAME = reqMovieName,
+                movieData = reqMovieData
+              
             };
+                       
 
-
-            var message = await _mediator.Send(new AddMessageCommand
+            var message = await _mediator.Send(new UploadMovieCommand
             {
-                message = messageFromRequest
+                Movie = movieFromRequest
             });
 
 
-            if (message)
-            {
-                // await SendMessageToGroupChat(messageFromRequest, User.Identity.Name);
-            }
+           
             return message.ToString();
         }
+        /*
+        [HttpGet("/get", Name = "GetMovie")]
+        public async Task<string> Movie(string reqLocation)
+        {
+            var movieFromRequest = new Movie
+            {
+                Name = "Over the Garden Wall",
+                Location = reqLocation
+            };
 
-        [NonAction]
-        public async Task SendMessageToGroupChat(Message message, string groupChatName)
 
-            => await _chatHubContext.Clients.Group(groupChatName).RecieveMessage(message);
+            var message = await _mediator.Send(new GetMovieCommand
+            {
+                RequestedMovie = movsieFromRequest
+            });
+
+
+
+            return message.ToString();
+        }
+        */
     }
 }

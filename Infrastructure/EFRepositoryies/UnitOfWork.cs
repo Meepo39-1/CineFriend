@@ -23,7 +23,8 @@ namespace Infrastructure.EFRepositoryies
 
 
         public UnitOfWork(ApplicationDbContext dbContext, IUserRepository userRepository, ICinemaRoomRepository cinemaRepository,
-            IMoviePlayerRepository moviePlayerRepository, IChatRepository chatRepository, IMovieLibraryRepository movieLibraryRepository, IMessageRepository messageRepository)
+            IMoviePlayerRepository moviePlayerRepository, IChatRepository chatRepository, IMovieLibraryRepository movieLibraryRepository, IMessageRepository messageRepository
+            ,IMovieRepository movieRepository)
         {
             _dbContext = dbContext;
              UserRepository = userRepository;
@@ -32,6 +33,7 @@ namespace Infrastructure.EFRepositoryies
             ChatRepository = chatRepository;
             MoviePlayerRepository = moviePlayerRepository;
             MessageRepository = messageRepository;
+            MovieRepository = movieRepository;
         }
 
         public IUserRepository UserRepository { get; private set; }
@@ -44,7 +46,7 @@ namespace Infrastructure.EFRepositoryies
         public IMoviePlayerRepository MoviePlayerRepository { get; private set; }
         public IChatRepository ChatRepository { get; private set; }
 
-        public IMovieRepository MovieRepository => throw new NotImplementedException();
+        public IMovieRepository MovieRepository { get; private set; }
 
         public Task<bool> BeginTransaction()
         {

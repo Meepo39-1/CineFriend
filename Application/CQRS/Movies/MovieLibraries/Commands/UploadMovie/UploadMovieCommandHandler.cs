@@ -2,6 +2,7 @@
 using Application.Services;
 using Domain.Movies;
 using MediatR;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,22 +17,35 @@ namespace Application.CQRS.Movies.MovieLibraries.Commands.UploadMovie
         private readonly IUnitOfWork _unitOfWork;
         private readonly IFileDownloadService _fileDownloadService;
         private readonly IBlobStorageService _blobStorageService;
-        public UploadMovieCommandHandler(IUnitOfWork unitOfWork)
+        public UploadMovieCommandHandler(IUnitOfWork unitOfWork, IFileDownloadService fileDownloadService, IBlobStorageService blobStorageService)
         {
             _unitOfWork = unitOfWork;
+            _fileDownloadService = fileDownloadService;
+            _blobStorageService = blobStorageService;
         }
 
-        public Task<string> Handle(UploadMovieCommand request, CancellationToken cancellationToken)
+        public async Task<string> Handle(UploadMovieCommand request, CancellationToken cancellationToken)
         {
             var movie = new Movie();
-            movie.Location = _fileDownloadService.DownloadMovieFromLocation(request.RequestedMovie.Location);
+            movie.Name = request.Movie.NAME;
+            //movie.Location = null;
+            //byte[] movieData =  await _fileDownloadService.DownloadMovieFromLocation(request.RequestedMovie.Location);
 
-            _unitOfWork.BeginTransaction();
-            //_unitOfWork.MovieRepository().CreateMovie(movie);
-            _blobStorageService.UploadMovieToCloud(movie);
-            _unitOfWork.CommitTransaction();
+            try
+            {
+                movie.Location = await _blobStorageService.UploadMovieToCloud(request.Movie.movieData, request.Movie.NAME);
 
-            return Task.FromResult("string location");
+                _unitOfWork.BeginTransaction();
+                _unitOfWork.MovieRepository.CreateMovie(movie);
+           
+                _unitOfWork.CommitTransaction();
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+
+            return movie.Location;
         }
     }
 }

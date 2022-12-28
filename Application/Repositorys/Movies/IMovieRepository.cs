@@ -10,6 +10,6 @@ namespace Application.Repositorys.Movies
     public interface IMovieRepository
     {
         public Task<bool> CreateMovie(Movie movie);
-        public Task<bool> GetMovie(int movieId);
+        public Task<Movie> GetMovie(int movieId);
     }
 }

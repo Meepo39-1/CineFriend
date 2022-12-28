@@ -22,7 +22,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="CQRS\Movies\MovieLibraries\Querys\GetMovie\" />
     <Folder Include="CQRS\Movies\MoviePlayers\" />
     <Folder Include="CQRS\Rooms\ChatRooms\Queries\" />
     <Folder Include="CQRS\Rooms\CinemaRoomS\" />

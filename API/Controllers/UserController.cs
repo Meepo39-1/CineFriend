@@ -45,7 +45,7 @@ namespace API.Controllers
             });
 
 
-            //grupul user-ului va fi creat din frontend, adica se va face accesa o noua ruta
+            //grupul user-ului va fi creat din frontend, adica se va accesa o noua ruta
             //intreaba mentorul daca e oke 
 
             return message.ToString();

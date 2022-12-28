@@ -309,6 +309,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Azure.Storage.Blobs": {
+              "target": "Package",
+              "version": "[12.14.1, )"
+            },
             "MediatR": {
               "target": "Package",
               "version": "[11.1.0, )"

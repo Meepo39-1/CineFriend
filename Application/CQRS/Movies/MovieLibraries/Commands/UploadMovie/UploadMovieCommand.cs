@@ -11,8 +11,7 @@ namespace Application.CQRS.Movies.MovieLibraries.Commands.UploadMovie
 {
     public class UploadMovieCommand : IRequest<string>
     {
-      
-     
-        public Movie RequestedMovie { get; set; }
+
+        public MovieDTO Movie { get; set; }
     }
 }

@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Application.Services
 {
-    internal interface IFileDownloadService
+    public interface IFileDownloadService
     {
         /*method that return the location of the downloaded file*/
-        public string DownloadMovieFromLocation(string downloadPath);
+        public Task<byte[]> DownloadMovieFromLocation(string downloadPath);
     }
 }
