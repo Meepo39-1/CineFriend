@@ -23,8 +23,8 @@ namespace Infrastructure.EFRepositoryies.Movies
 
         public Task<int> CreateMovieLibrary(User user)
         {
-            var newMovieLibRecord = new MovieLibraryType();
-            newMovieLibRecord.UserTypeId = user.Id;
+            var newMovieLibRecord = new MovieLibrary();
+            newMovieLibRecord.UserId = user.Id;
 
             _dbContext.Add(newMovieLibRecord);
             _dbContext.SaveChanges();

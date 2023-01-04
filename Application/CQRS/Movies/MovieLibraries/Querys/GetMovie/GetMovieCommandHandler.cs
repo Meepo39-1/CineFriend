@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Application.CQRS.Movies.MovieLibraries.Querys.GetMovie
 {
-    public class GetMovieCommandHandler : IRequestHandler<GetMovieCommand, byte[]>
+    public class GetMovieCommandHandler : IRequestHandler<GetMovieCommand, string>
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IFileDownloadService _fileDownloadService;
@@ -21,19 +21,19 @@ namespace Application.CQRS.Movies.MovieLibraries.Querys.GetMovie
             _fileDownloadService = fileDownloadService;
             _blobStorageService = blobStorageService;
         }
-        public async Task<byte[]> Handle(GetMovieCommand request, CancellationToken cancellationToken)
+        public async Task<string> Handle(GetMovieCommand request, CancellationToken cancellationToken)
         {
            
        
             try
             {
                 
-                _unitOfWork.BeginTransaction();
+                //_unitOfWork.BeginTransaction();
                 var movie = await _unitOfWork.MovieRepository.GetMovie(request.MovieId);
-                var movieData = await _blobStorageService.DownloadMovie(movie);
-
-                _unitOfWork.CommitTransaction();
-                return movieData;
+                //var movieData = await _blobStorageService.DownloadMovie(movie);
+               
+                //_unitOfWork.CommitTransaction();
+                return movie.Location;
             }
             catch (Exception ex)
             {

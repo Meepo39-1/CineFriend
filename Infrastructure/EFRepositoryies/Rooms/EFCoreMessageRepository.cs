@@ -18,18 +18,18 @@ namespace Infrastructure.EFRepositoryies.Rooms
         {
             _dbContext = dbContext;
         }
-        public async Task<bool> CreateMessage(Message message)
+        public Task<bool> CreateMessage(Message message)
         {
-            var messageRecord = new MessageType();
+            var messageRecord = new Message();
             messageRecord.DateTime = message.DateTime;
-            messageRecord.ChatId = message.Chat.Id;
+            messageRecord.ChatId = message.ChatId;
             messageRecord.Content = message.Content;
             messageRecord.Sender = message.Sender;
 
            _dbContext.Messages.Add(message);
            _dbContext.SaveChanges();
 
-            return true; 
+            return Task.FromResult(true); 
 
         }
 

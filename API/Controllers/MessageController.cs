@@ -16,22 +16,22 @@ namespace API.Controllers
         private readonly IMediator _mediator;
         public IHubContext<ChatHub, IRealTimeMessageService> _chatHubContext { get; } //?
 
-        public IHubContext<CinemaConnectionHub, ICinemaConnectionHub> _cinemaConnectionHubContext { get; }
-        public MessageController(IMediator mediator, IHubContext<ChatHub, IRealTimeMessageService> chatHubContext, IHubContext<CinemaConnectionHub, ICinemaConnectionHub> cinemaConnectionHubContext)
+        public IHubContext<VideoHub, IVideoHub> _videoHubContext { get; }
+        public MessageController(IMediator mediator, IHubContext<ChatHub, IRealTimeMessageService> chatHubContext, IHubContext<VideoHub, IVideoHub> VideoHubContext)
         {
             _mediator = mediator;
             _chatHubContext = chatHubContext;
-            _cinemaConnectionHubContext = cinemaConnectionHubContext;
+            _videoHubContext = VideoHubContext;
         }
 
-        [HttpGet(Name = "GetCreateMessage")]
-        public async Task<string> CreateMessage()
+        [HttpPost(Name = "GetCreateMessage")]
+        public async Task<string> CreateMessage(string user, string content)
         {
             var messageFromRequest = new Message
             {
-                Sender = "Edi",
-                Content = "Buna",
-                Chat = new Chat { Id = 2 }
+                Sender = user,
+                Content = content,
+                ChatId = 1
             };
 
 
@@ -43,14 +43,15 @@ namespace API.Controllers
 
             if (message)
             {
-               // await SendMessageToGroupChat(messageFromRequest, User.Identity.Name);
+                await SendMessageToGroupChat(messageFromRequest, "GroupTest");
             }
             return message.ToString();
         }
 
+
         [NonAction]
         public async Task SendMessageToGroupChat(Message message, string groupChatName)
-           
+
             => await _chatHubContext.Clients.Group(groupChatName).RecieveMessage(message);
     }
 }

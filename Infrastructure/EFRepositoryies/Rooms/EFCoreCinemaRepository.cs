@@ -28,8 +28,8 @@ namespace Infrastructure.EFRepositoryies.Rooms
 
         async Task<int> ICinemaRoomRepository.CreateCinemaRoom(CinemaRoom cinemaRoomData)
         {
-            var cinemaRoomRecord = new CinemaRoomType();
-            cinemaRoomRecord.UserTypeId = cinemaRoomData.Admin.Id;
+            var cinemaRoomRecord = new CinemaRoom();
+            cinemaRoomRecord.UserId = cinemaRoomData.UserId;
 
             _dbcontext.Add(cinemaRoomData);
             _dbcontext.SaveChanges();

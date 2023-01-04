@@ -66,7 +66,7 @@ namespace Infrastructure.EFRepositoryies.Users
 
         async Task<int> IUserRepository.CreateUser(User newUser)
         {
-            var newUserRecord = new UserType();
+            var newUserRecord = new User();
 
             //mapping values from domain model to ef core model 
             newUserRecord.Name = newUser.Name;

@@ -21,23 +21,22 @@ namespace API.Controllers
 
         public IHubContext<ChatHub, IRealTimeMessageService> _chatHubContext { get; } //?
 
-        public IHubContext<CinemaConnectionHub, ICinemaConnectionHub> _cinemaConnectionHubContext { get; }
-        public UserController(IMediator mediator, IHubContext<ChatHub, IRealTimeMessageService> chatHubContext, IHubContext<CinemaConnectionHub, ICinemaConnectionHub> cinemaConnectionHubContext)
+       public UserController(IMediator mediator, IHubContext<ChatHub, IRealTimeMessageService> chatHubContext)
         {
             _mediator = mediator;
             _chatHubContext = chatHubContext;
-            _cinemaConnectionHubContext = cinemaConnectionHubContext;
+         
         }
 
 
-        [HttpGet("/CreateUser", Name = "CreateUser")]
+        [HttpPost("/CreateUser", Name = "CreateUser")]
 
        // [Route("User/CreateUser")]
-        public async Task<string> Get()
+        public async Task<string> CreateUser(string name, string password)
         {
             var userFromRequest = new UserDTO();
-            userFromRequest.Name = "Mihai";
-            userFromRequest.Password = "parola";
+            userFromRequest.Name = name;
+            userFromRequest.Password = password;
 
             var message = await _mediator.Send(new CreateUserCommand
             {
@@ -48,6 +47,7 @@ namespace API.Controllers
             //grupul user-ului va fi creat din frontend, adica se va accesa o noua ruta
             //intreaba mentorul daca e oke 
 
+          
             return message.ToString();
 
         }

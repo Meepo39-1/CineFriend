@@ -39,7 +39,7 @@ namespace Application.CQRS.Movies.MovieLibraries.Commands.UploadMovie
 
                 movie.Location = await _blobStorageService.UploadMovieToCloud(request.Movie.movieData, movie);
 
-                _unitOfWork.MovieRepository.UpateMovie(movie);
+                _unitOfWork.MovieRepository.UpdateMovie(movie);
 
                 _unitOfWork.CommitTransaction();
             }

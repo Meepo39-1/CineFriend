@@ -32,9 +32,10 @@ namespace Infrastructure.EFRepositoryies.Movies
             return Task.FromResult(movie);
         }
 
-        public Task<bool> UpateMovie(Movie movie)
+        public Task<bool> UpdateMovie(Movie movie)
         {
             _dbContext.Movies.Update(movie);
+            _dbContext.SaveChanges();
             return Task.FromResult(true);
         }
     }

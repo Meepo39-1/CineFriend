@@ -65,6 +65,27 @@ builder.Services.AddMediatR(typeof(EFCoreCinemaRepository));
 builder.Services.AddMediatR(typeof(Program));
 
 builder.Services.AddSignalR();
+/*
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(
+        builder =>
+        {
+            builder.WithOrigins("http://127.0.0.1:5500/cinemaPage.html")
+                .AllowAnyHeader()
+                .WithMethods("GET", "POST")
+                .AllowCredentials();
+        });
+});*/
+
+builder.Services.AddCors(options => options.AddPolicy("CorsPolicy",
+            builder =>
+            {
+                builder.AllowAnyHeader()
+                       .AllowAnyMethod()
+                       .SetIsOriginAllowed((host) => true)
+                       .AllowCredentials();
+            }));
 
 /*
 builder.Services
@@ -89,7 +110,7 @@ if (app.Environment.IsDevelopment())
 }
 
 
-
+app.UseCors("CorsPolicy");
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
@@ -110,7 +131,7 @@ app.Use(async (context, next) =>
 */
 
 app.MapControllers();
-app.MapHub<CinemaConnectionHub>("/CinemaConnectionHub");
+app.MapHub<VideoHub>("/VideoHub");
 app.MapHub<ChatHub>("/ChatHub");
 app.Run();
 /*

@@ -20,6 +20,9 @@ namespace API.Hubs
 
             => await Clients.Group(groupChatName).RecieveMessage(message);
 
-        
+        public Task AddToGroup(string groupName)
+         => Groups.AddToGroupAsync(Context.ConnectionId, groupName);
+
+
     }
 }

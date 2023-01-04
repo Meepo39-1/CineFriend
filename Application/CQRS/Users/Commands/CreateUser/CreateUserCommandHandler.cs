@@ -38,6 +38,8 @@ namespace Application.CQRS.Users.Commands.CreateUser
 
                 await _unitOfWork.BeginTransaction();
 
+              
+
                 //an User is composed of a MovieLibrary and a CinemaRoom
           
                 var userId = await _unitOfWork.UserRepository.CreateUser(newUser);
@@ -48,7 +50,7 @@ namespace Application.CQRS.Users.Commands.CreateUser
 
 
                 //generating cinemaRoom where the created user is admin
-                newCinema.Admin = newUser;
+                newCinema.UserId = userId;
                 //newUser.Id = userId;
 
 
@@ -59,7 +61,7 @@ namespace Application.CQRS.Users.Commands.CreateUser
 
                 newCinema.MoviePlayer = new MoviePlayer();
                 newCinema.MoviePlayer.Language = "ROMANA";
-                newCinema.Id = cinemaRoomId;
+                newCinema.MoviePlayer.CinemaRoomId = cinemaRoomId;
                 
                 await _unitOfWork.MoviePlayerRepository.CreateMoviePlayer(newCinema);
 

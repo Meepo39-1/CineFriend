@@ -21,8 +21,8 @@ namespace Infrastructure.EFRepositoryies.Rooms
 
         public Task<int> CreateChat(CinemaRoom cinemaRoom)
         {
-            var newChatRecord = new ChatRoomType();
-            newChatRecord.CinemaRoomTypeId = cinemaRoom.Id;
+            var newChatRecord = new Chat();
+            newChatRecord.CinemaRoomId = cinemaRoom.Id;
 
             _dbContext.Add(newChatRecord);
             _dbContext.SaveChanges();

@@ -21,12 +21,12 @@ namespace API.Controllers
         private readonly IMediator _mediator;
         public IHubContext<ChatHub, IRealTimeMessageService> _chatHubContext { get; } //?
 
-        public IHubContext<CinemaConnectionHub, ICinemaConnectionHub> _cinemaConnectionHubContext { get; }
-        public MovieController(IMediator mediator, IHubContext<ChatHub, IRealTimeMessageService> chatHubContext, IHubContext<CinemaConnectionHub, ICinemaConnectionHub> cinemaConnectionHubContext)
+        
+        public MovieController(IMediator mediator, IHubContext<ChatHub, IRealTimeMessageService> chatHubContext)
         {
             _mediator = mediator;
             _chatHubContext = chatHubContext;
-            _cinemaConnectionHubContext = cinemaConnectionHubContext;
+          
         }
 
         [HttpPost("/upload", Name = "UploadMovie")]
@@ -54,16 +54,16 @@ namespace API.Controllers
             return message.ToString();
         }
         [HttpGet("/getMovie", Name = "GetMovie")]
-        public async Task<FileContentResult> GetMovie(int id)
+        public async Task<string> GetMovie(int id)
         {
 
-            var data = await _mediator.Send(new GetMovieCommand
+            var movieUrl = await _mediator.Send(new GetMovieCommand
             {
                 MovieId = id
             });
 
             //return new FileContentResult(data, "video/mp4");
-            return File(data, "video/mp4");
+            return movieUrl;
             //return data;
         }
 

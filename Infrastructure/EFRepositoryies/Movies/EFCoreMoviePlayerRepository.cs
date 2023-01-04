@@ -22,9 +22,9 @@ namespace Infrastructure.EFRepositoryies.Movies
 
         public Task<int> CreateMoviePlayer(CinemaRoom cinemaRoom)
         {
-            var newMoviePlayerRecord = new MoviePlayerType();
+            var newMoviePlayerRecord = new MoviePlayer();
             newMoviePlayerRecord.Language = cinemaRoom.MoviePlayer.Language;
-            newMoviePlayerRecord.CinemaRoomTypeId = cinemaRoom.Id;
+            newMoviePlayerRecord.CinemaRoomId = cinemaRoom.Id;
 
             _dbContext.Add(newMoviePlayerRecord);
             _dbContext.SaveChanges();
