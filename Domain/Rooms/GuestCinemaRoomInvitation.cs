@@ -9,9 +9,10 @@ namespace Domain.Rooms
 {
     public class GuestCinemaRoomInvitation
     {
+        public int Id { get; set; }
         public string Status { get; set; }
-        public DateTime Date { get; set; }
-        public DateTime ExpirationDate { get; set; }
+        public DateTimeOffset Date { get; set; }
+        public DateTimeOffset ExpirationDate { get; set; }
 
         public CinemaRoom CinemaRoom { get; set; }
         public int? CinemaRoomId { get; set; }

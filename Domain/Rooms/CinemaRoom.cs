@@ -1,10 +1,5 @@
 ﻿using Domain.Movies;
 using Domain.Users;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Domain.Rooms
 {
@@ -17,6 +12,8 @@ namespace Domain.Rooms
         public Chat Chat { get; set; }
 
         //Many to many
+
+
         public ICollection<GuestCinemaRoomInvitation>? Guests { get; set; }
 
         //1 TO 1

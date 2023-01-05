@@ -85,3 +85,6 @@ C:\Users\Edi\Desktop\Internship Amdaris\Proiect\Wafend\CineFiend\Presentation La
 C:\Users\Edi\Desktop\Internship Amdaris\Proiect\Wafend\CineFiend\Presentation Layer\bin\Debug\net6.0\Microsoft.Owin.dll
 C:\Users\Edi\Desktop\Internship Amdaris\Proiect\Wafend\CineFiend\Presentation Layer\bin\Debug\net6.0\Microsoft.Owin.Security.dll
 C:\Users\Edi\Desktop\Internship Amdaris\Proiect\Wafend\CineFiend\Presentation Layer\bin\Debug\net6.0\Owin.dll
+C:\Users\Edi\Desktop\Internship Amdaris\Proiect\Wafend\CineFiend\Presentation Layer\bin\Debug\net6.0\Azure.Storage.Blobs.dll
+C:\Users\Edi\Desktop\Internship Amdaris\Proiect\Wafend\CineFiend\Presentation Layer\bin\Debug\net6.0\Azure.Storage.Common.dll
+C:\Users\Edi\Desktop\Internship Amdaris\Proiect\Wafend\CineFiend\Presentation Layer\bin\Debug\net6.0\System.IO.Hashing.dll

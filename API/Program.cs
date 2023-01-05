@@ -53,6 +53,7 @@ builder.Services.AddScoped<IMoviePlayerRepository, EFCoreMoviePlayerRepository>(
 builder.Services.AddScoped<IChatRepository, EFCoreChatRepository>();
 builder.Services.AddScoped<IMessageRepository, EFCoreMessageRepository>();
 builder.Services.AddScoped<IMovieRepository, EFCoreMovieRepository>();
+builder.Services.AddScoped<IGuestCinemaRoomInvitationRepository, EFCoreGuestCinemaRoomInvitationRepository>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IBlobStorageService, BlobStorageService>();
 builder.Services.AddScoped<IFileDownloadService, FileDownloadService>();

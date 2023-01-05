@@ -14,5 +14,6 @@ namespace Application.Repositorys.Rooms
         public Task<bool> DeleteMessage(Message message, int chatId);
 
         public Task<Message> UpdateMessage(Message message);
+
     }
 }

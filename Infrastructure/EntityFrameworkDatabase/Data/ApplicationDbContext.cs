@@ -34,6 +34,7 @@ namespace Infrastructure.EntityFrameworkDataBase.Data
         //Room related tables
         public DbSet<CinemaRoom> CinemaRooms { get; set; }
         public DbSet<Chat> Chats { get; set; }
+        public DbSet<GuestCinemaRoomInvitation> Invitations { get; set; }
       protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<GuestCinemaRoomInvitation>()

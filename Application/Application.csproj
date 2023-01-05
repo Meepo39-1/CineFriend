@@ -24,7 +24,6 @@
   <ItemGroup>
     <Folder Include="CQRS\Movies\MoviePlayers\" />
     <Folder Include="CQRS\Rooms\ChatRooms\Queries\" />
-    <Folder Include="CQRS\Rooms\CinemaRoomS\" />
   </ItemGroup>
 
 </Project>

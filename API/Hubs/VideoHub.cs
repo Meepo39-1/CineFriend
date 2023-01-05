@@ -18,6 +18,7 @@ namespace API.Hubs
         //To be authorized only for the admin of the group
         public Task UpdateTime(string groupName)
               => Groups.AddToGroupAsync(Context.ConnectionId, groupName);
+        
 
     }
 }
