@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,7 +26,7 @@ namespace Infrastructure.EFRepositoryies.Rooms
 
             _dbContext.SaveChanges();
 
-            return Task.FromResult(true);
+            return Task.FromResult(true); 
         }
 
         public Task DeleteExpiredInvitations()
@@ -34,6 +36,20 @@ namespace Infrastructure.EFRepositoryies.Rooms
 
                 return Task.CompletedTask;
          }
+
+        public Task<List<GuestCinemaRoomInvitation>> GetInvites(int userId)
+        {
+           var listInvites =  _dbContext.Invitations
+           .Where(i => i.UserId == userId 
+           &&
+           i.ExpirationDate.CompareTo(DateTimeOffset.Now)>0
+           &&
+           ( i.Status.Equals("accepted") || i.Status.Equals("pending")))
+           .ToList();
+
+
+            return Task.FromResult(listInvites);
+        }
 
         public Task<bool> UpdateInvite(int id, string status)
         {

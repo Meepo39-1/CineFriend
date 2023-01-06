@@ -1,4 +1,5 @@
 ﻿using Domain.Users;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,7 @@ namespace Domain.Rooms
 {
     public class GuestCinemaRoomInvitation
     {
+       
         public int Id { get; set; }
         public string Status { get; set; }
         public DateTimeOffset Date { get; set; }

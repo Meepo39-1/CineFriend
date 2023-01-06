@@ -1,5 +1,6 @@
 ﻿using Application.CQRS.Rooms.CinemaRooms.Commands.InviteUser;
 using Application.CQRS.Rooms.CinemaRooms.Commands.ProcessInvite;
+using Application.CQRS.Rooms.CinemaRooms.Queries;
 using Domain.Rooms;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -9,7 +10,7 @@ namespace API.Controllers
 {
     [Route("[controller]")]
     public class InvitationController : Controller
-    {   
+    {
         private readonly IMediator _mediator;
         //THE TYPE CHAThUB -> can't be used as Thub in IHUBContext<Thub, T>
 
@@ -32,13 +33,13 @@ namespace API.Controllers
             var inviteCommand = new InviteUserCommand()
             {
                 Invitation = invitationDTO
-        };
+            };
 
-            bool inviteCommandSucces = await  _mediator.Send(inviteCommand);
+            bool inviteCommandSucces = await _mediator.Send(inviteCommand);
             return inviteCommandSucces;
         }
 
-        [HttpPatch("/processInvite",Name ="RespondToInvite")]
+        [HttpPatch("/processInvite", Name = "RespondToInvite")]
         public async Task<bool> ProcessInvitation(int invitationId, string response)
         {
             var invitationDTO = new InvitationDTO()
@@ -54,6 +55,17 @@ namespace API.Controllers
 
             bool processCommandSucces = await _mediator.Send(processInviteCommand);
             return processCommandSucces;
+        }
+        [HttpGet("/getInvites", Name = "GetUserInvites")]
+        public async Task<List<GuestCinemaRoomInvitation>> GetInvitations(int userId)
+        {
+            var getInvitesCommand = new getInvitationsCommand()
+            {
+                UserId = userId
+            };
+            List< GuestCinemaRoomInvitation > invitations = await _mediator.Send(getInvitesCommand);
+
+            return invitations;
         }
     }
 }

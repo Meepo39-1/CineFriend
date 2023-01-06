@@ -13,6 +13,7 @@ namespace Application.Repositorys.Rooms
 
         public Task<bool> UpdateInvite(int id, string status);
 
+        public Task<List<GuestCinemaRoomInvitation>> GetInvites(int userId);
         public Task DeleteExpiredInvitations();
 
     }
